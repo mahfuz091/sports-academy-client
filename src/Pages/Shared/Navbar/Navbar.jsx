@@ -55,7 +55,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className='navbar fixed max-w-[1320px] z-10 pt-8 pb-6 px-14 nav-bg justify-between'>
+      <div className='navbar sticky max-w-[1320px] z-10 pt-8 pb-6 px-14 nav-bg justify-between'>
         <div className='navbar-start'>
           <div className='dropdown'>
             <label tabIndex={0} className='btn btn-ghost lg:hidden'>
@@ -87,7 +87,9 @@ const Navbar = () => {
           </div>
         </div>
         <div className='navbar-center hidden lg:flex'>
-          <ul className='menu menu-horizontal  text-lg   px-1'>{navOptions}</ul>
+          <ul className='menu menu-horizontal font-semibold text-xl   px-1'>
+            {navOptions}
+          </ul>
         </div>
       </div>
     </div>
