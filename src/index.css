@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#root {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+}
+.nav-bg {
+  background-color: rgba(251, 251, 251, 0.5);
+}
+.menu :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
+.menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  border-radius: 0 !important;
+}
+.navbar a:hover {
+  background: none;
+  color: rgb(0, 0, 255);
+}
+.active {
+  @apply border-blue-500;
+}
