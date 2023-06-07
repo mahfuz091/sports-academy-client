@@ -1,19 +1,62 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import Lottie from "react-lottie";
 import animationData from "../../assets/Lotties/login.json";
+import { AuthContext } from "../../Providers/Authprovider";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
+
+  const { createUser, updateUserProfile, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data.image[0]);
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+
+    const url = `https://api.imgbb.com/1/upload?key=${
+      import.meta.env.VITE_IMGBB_KEY
+    }`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imageData) => {
+        const imageUrl = imageData.data.display_url;
+        createUser(data.email, data.password)
+          .then((result) => {
+            updateUserProfile(data.name, imageUrl)
+              .then(() => {
+                Swal.fire("Signup successful");
+                navigate(from, { replace: true });
+              })
+              .catch((err) => {
+                setLoading(false);
+                console.log(err.message);
+              });
+          })
+          .catch((err) => {
+            setLoading(false);
+            console.log(err.message);
+          });
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err.message);
+      });
   };
 
   const defaultOptions = {
@@ -24,6 +67,7 @@ const Register = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+  const password = watch("password");
   return (
     <div className=' hero my-32'>
       <div className=' lg:flex gap-14 items-center'>
@@ -69,10 +113,25 @@ const Register = () => {
                 type='password'
                 placeholder='password'
                 className='input input-bordered'
-                {...register("password", { required: true })}
+                {...register("password", {
+                  required: true,
+                  minLength: 6,
+                  pattern: /(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])/,
+                })}
               />
-              {errors.password && (
+              {errors.password?.type === "required" && (
                 <span className='text-warning'>This field is required</span>
+              )}
+              {errors.password?.type === "minLength" && (
+                <span className='text-warning'>
+                  Password must be 6 characters.
+                </span>
+              )}
+              {errors.password?.type === "pattern" && (
+                <span className='text-warning'>
+                  Password must have one Uppercase one lower case and one number
+                  .
+                </span>
               )}
             </div>
             <div className='form-control'>
@@ -83,11 +142,26 @@ const Register = () => {
                 type='password'
                 placeholder='confirm password'
                 className='input input-bordered'
-                {...register("confirm-password", { required: true })}
+                {...register("confirmPassword", {
+                  required: true,
+                  validate: (value) =>
+                    value === password || "The passwords do not match",
+                })}
               />
-              {errors.password && (
-                <span className='text-warning'>This field is required</span>
+              {errors.confirmPassword && (
+                <span className='text-warning'>Password does not match</span>
               )}
+            </div>
+            <div>
+              <label htmlFor='image' className='label'>
+                <span className='text-xl'>Profile Photo:</span>
+              </label>
+              <input
+                type='file'
+                id='image'
+                accept='image/*'
+                {...register("image", { required: true })}
+              />
             </div>
 
             <div className='form-control mt-6'>
