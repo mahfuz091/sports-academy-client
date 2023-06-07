@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import SocialLogin from "../SocialLogin/SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import Lottie from "react-lottie";
 import animationData from "../../assets/Lotties/login.json";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../Providers/Authprovider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -15,6 +22,16 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+    const { email, password } = data;
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+      Swal.fire({
+        title: "User Login Successful.",
+        icon: "success",
+      });
+      navigate(from, { replace: true });
+    });
   };
 
   const defaultOptions = {

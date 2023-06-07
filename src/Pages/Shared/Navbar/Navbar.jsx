@@ -53,7 +53,7 @@ const Navbar = () => {
       </li>
       {user ? (
         <>
-          <img className='w-8 mr-5 rounded-full' src={user.photoURL} alt='' />
+          <img className='w-12 mr-5 rounded-full' src={user.photoURL} alt='' />
           <button onClick={handleSignOut}>SignOut</button>
         </>
       ) : (

@@ -40,7 +40,10 @@ const Register = () => {
           .then((result) => {
             updateUserProfile(data.name, imageUrl)
               .then(() => {
-                Swal.fire("Signup successful");
+                Swal.fire({
+                  title: "User Registration Successfull",
+                  icon: "success",
+                });
                 navigate(from, { replace: true });
               })
               .catch((err) => {
