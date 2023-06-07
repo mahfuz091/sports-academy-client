@@ -119,7 +119,7 @@ const Register = () => {
                 {...register("password", {
                   required: true,
                   minLength: 6,
-                  pattern: /(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])/,
+                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
                 })}
               />
               {errors.password?.type === "required" && (
@@ -132,8 +132,8 @@ const Register = () => {
               )}
               {errors.password?.type === "pattern" && (
                 <span className='text-warning'>
-                  Password must have one Uppercase one lower case and one number
-                  .
+                  Password must have one capital letter one number and one
+                  spacial characters.
                 </span>
               )}
             </div>
@@ -171,7 +171,7 @@ const Register = () => {
               <input
                 type='submit'
                 className='btn border-none btn-login'
-                value='Login'
+                value='Register Now'
               />
             </div>
           </form>

@@ -89,7 +89,7 @@ const Login = () => {
               <input
                 type='submit'
                 className='btn border-none btn-login'
-                value='Login'
+                value='Login Now'
               />
             </div>
           </form>

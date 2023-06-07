@@ -21,3 +21,23 @@
 .active {
   @apply border-blue-500;
 }
+.carousel {
+  display: flex;
+  justify-content: center;
+}
+.legend {
+  bottom: 250px !important;
+  background: transparent;
+  font-size: 32px !important;
+  font-weight: 700;
+  color: black !important;
+}
+.banner-title {
+  position: absolute;
+
+  bottom: 250px;
+  left: 300px;
+  font-size: 72px;
+  font-weight: 800;
+  color: #fcc044;
+}
