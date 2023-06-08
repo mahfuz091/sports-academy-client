@@ -1,0 +1,42 @@
+[
+    {
+     
+      "name": "Base Ball Course",
+      "image": "https://i.ibb.co/c15Qjmw/istockphoto-481776724-640x640.jpg",
+      "instructor": "John Smith",
+      "seats": 15,
+      "price": "200"
+    },
+    {
+      
+      "name": "Advanced Footbal Course",
+      "image": "https://i.ibb.co/Qf9TPnK/istockphoto-533932920-640x640.jpg",
+      "instructor": "Emily Johnson",
+      "seats": 10,
+      "price": "250"
+    },
+    {
+     
+      "name": "Cricket Bowling Course",
+      "image": "https://i.ibb.co/c15Qjmw/istockphoto-481776724-640x640.jpg",
+      "instructor": "Michael Davis",
+      "seats": 12,
+      "price": "180"
+    },
+    {
+     
+      "name": "Cricket Batting Course",
+      "image": "https://i.ibb.co/c15Qjmw/istockphoto-481776724-640x640.jpg",
+      "instructor": "Sarah Thompson",
+      "seats": 8,
+      "price": "150"
+    },
+    {
+     
+      "name": "Volly Ball Course",
+      "image": "https://i.ibb.co/c15Qjmw/istockphoto-481776724-640x640.jpg",
+      "instructor": "David Wilson",
+      "seats": 10,
+      "price": "220"
+    }
+  ]

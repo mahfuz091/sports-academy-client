@@ -43,7 +43,7 @@ const Login = () => {
     },
   };
   return (
-    <div className=' hero my-32'>
+    <div className=' hero py-32'>
       <div className=' lg:flex gap-14 items-center'>
         <div className=' '>
           <Lottie options={defaultOptions} height={400} width={400} />

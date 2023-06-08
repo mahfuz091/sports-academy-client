@@ -40,7 +40,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({ isActive }) => (isActive ? "text-blue-600" : "")}
-          to='/order/salad'
+          to='/all-classes'
         >
           Classes
         </NavLink>

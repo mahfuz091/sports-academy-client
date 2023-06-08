@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
+.wrapper {
   max-width: 1320px;
-  width: 100%;
   margin: 0 auto;
+  width: 100%;
 }
 .nav-bg {
   background-color: rgba(251, 251, 251, 0.5);
