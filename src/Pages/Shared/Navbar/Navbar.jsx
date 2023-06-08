@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { AuthContext } from "../../../Providers/Authprovider";
+import cartImg from "../../../assets/logo/cart.png";
+import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
 
   const handleSignOut = () => {
     logOut()
@@ -51,9 +54,17 @@ const Navbar = () => {
           to='/dashboard'
         ></NavLink>
       </li>
+      <li>
+        <Link to='/dashboard/mycart'>
+          <img className='w-14' src={cartImg} alt='' />
+          <div className='badge badge-secondary rounded-full absolute bottom-0 right-0 w-4 h-4 p-5 text-lg font-semibold'>
+            {cart?.length || 0}
+          </div>
+        </Link>
+      </li>
       {user ? (
         <>
-          <img className='w-12 mr-5 rounded-full' src={user.photoURL} alt='' />
+          <img className='w-12 ml-5 rounded-full' src={user.photoURL} alt='' />
           <button onClick={handleSignOut}>SignOut</button>
         </>
       ) : (
@@ -104,7 +115,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className='navbar-center hidden lg:flex'>
-          <ul className='menu menu-horizontal font-semibold text-xl   px-1'>
+          <ul className='menu menu-horizontal items-center font-semibold text-lg   px-1'>
             {navOptions}
           </ul>
         </div>

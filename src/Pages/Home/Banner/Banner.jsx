@@ -9,13 +9,13 @@ import img3 from "../../../assets/banner/3.jpg";
 const Banner = () => {
   return (
     <Carousel className=' wrapper'>
-      <div className='lg:h-[700px]'>
+      <div className='lg:h-[500px]'>
         <img src={img1} />
       </div>
-      <div className='lg:h-[700px]'>
+      <div className='lg:h-[500px]'>
         <img src={img2} />
       </div>
-      <div className='lg:h-[700px]'>
+      <div className='lg:h-[500px]'>
         <img src={img3} />
       </div>
     </Carousel>

@@ -4,13 +4,17 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes/Routes.jsx";
 import Authprovider from "./Providers/Authprovider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Authprovider>
-      <div className='wrapper'>
-        <RouterProvider router={router} />
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className='wrapper'>
+          <RouterProvider router={router} />
+        </div>
+      </QueryClientProvider>
     </Authprovider>
   </React.StrictMode>
 );
