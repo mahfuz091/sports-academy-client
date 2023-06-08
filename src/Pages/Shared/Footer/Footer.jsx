@@ -1,34 +1,39 @@
 import React from "react";
 import logo from "../../../assets/logo.png";
-
+import contact from "../../../assets/logo/phone-call.png";
+import location from "../../../assets/logo/location.png";
+import social from "../../../assets/logo/social-media.png";
 const Footer = () => {
   return (
     <div className='mb-10'>
-      <div className='footer-bg'>
+      <div className='bg-[#422c18]'>
         <footer className=' footer p-10 mb-12 '>
           <div>
             <img className='w-20 rounded-full' src={logo} alt='' />
-            <p className=''>
+            <p className='text-[#9e7631]'>
               Sports Camp
               <br />
               Providing reliable Summer Camp since 1992
             </p>
           </div>
-          <div>
+          <div className='text-white'>
+            <img className='w-8' src={contact} alt='' />
             <span className=' font-semibold text-xl uppercase mb-4'>
               Contact
             </span>
-            <p>Phone : 000000000</p>
-            <p>Email: info@happycamp.com</p>
+            <p className='text-[#fcc044]'>Telephone : 000000000</p>
+            <p className='text-[#fcc044]'>Email: info@happycamp.com</p>
           </div>
-          <div>
+          <div className='text-white'>
+            <img className='w-8' src={location} alt='' />
             <span className=' font-semibold text-xl uppercase mb-4'>
               Address
             </span>
-            <p>House-14, Road-15</p>
-            <p>Banani, Dhaka, Bangladesh</p>
+            <p className='text-[#a58c60]'>House-14, Road-15</p>
+            <p className='text-[#a58c60]'>Banani, Dhaka, Bangladesh</p>
           </div>
-          <div>
+          <div className='text-white'>
+            <img className='w-8' src={social} alt='' />
             <span className=' font-semibold text-xl uppercase mb-4'>
               Social
             </span>
@@ -69,8 +74,9 @@ const Footer = () => {
             </div>
           </div>
         </footer>
-        <p className=' text-center pb-5'>
-          © Copyright 2015 Sports Camp. All rights reserved.
+        <p className=' text-center pb-5 text-[#a58c60]'>
+          <span className='text-[#fcc044]'>Sports Camp</span> © 2015 . All
+          rights reserved.
         </p>
       </div>
     </div>

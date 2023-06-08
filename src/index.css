@@ -41,3 +41,6 @@
   font-weight: 800;
   color: #fcc044;
 }
+.hero-overlay {
+  background-position: top;
+}
