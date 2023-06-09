@@ -6,6 +6,8 @@ import Lottie from "react-lottie";
 import animationData from "../../assets/Lotties/login.json";
 import { AuthContext } from "../../Providers/Authprovider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+
 
 const Register = () => {
   const {
@@ -26,9 +28,8 @@ const Register = () => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
-    const url = `https://api.imgbb.com/1/upload?key=${
-      import.meta.env.VITE_IMGBB_KEY
-    }`;
+    const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY
+      }`;
     fetch(url, {
       method: "POST",
       body: formData,
@@ -40,11 +41,29 @@ const Register = () => {
           .then((result) => {
             updateUserProfile(data.name, imageUrl)
               .then(() => {
-                Swal.fire({
-                  title: "User Registration Successfull",
-                  icon: "success",
-                });
-                navigate(from, { replace: true });
+                const saveUser = { name: data.name, email: data.email }
+                fetch('http://localhost:5000/users', {
+                  method: 'POST',
+                  headers: {
+                    'content-type': 'application/json'
+                  },
+                  body: JSON.stringify(saveUser)
+                })
+                  .then(res => res.json())
+                  .then(data => {
+                    if (data.insertedId) {
+                      reset();
+                      Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'User created successfully.',
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                      navigate(from, { replace: true });
+                    }
+                  })
+
               })
               .catch((err) => {
                 setLoading(false);
@@ -71,7 +90,10 @@ const Register = () => {
     },
   };
   const password = watch("password");
-  return (
+  return (<>
+    <Helmet>
+      <title>Bistro Boss | Sign Up</title>
+    </Helmet>
     <div className=' hero py-32'>
       <div className=' lg:flex gap-14 items-center'>
         <div className=' '>
@@ -183,7 +205,8 @@ const Register = () => {
           <SocialLogin></SocialLogin>
         </div>
       </div>
-    </div>
+    </div></>
+
   );
 };
 

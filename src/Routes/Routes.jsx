@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import DashBoard from "../Layout/DashBoard";
 import SelectedClass from "../Pages/DashBoard/SelectedClass.jsx/SelectedClass";
+import ManageUser from "../Pages/DashBoard/ManageUser/ManageUser";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: 'selectclass',
         element: <SelectedClass />
+      },
+      {
+        path: 'manage-user',
+        element: <ManageUser />
       }
     ]
   }
