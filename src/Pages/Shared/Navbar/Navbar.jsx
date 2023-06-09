@@ -11,14 +11,14 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
   const navOptions = (
     <>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "text-blue-600" : "")}
+          className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
           to='/'
         >
           Home
@@ -26,7 +26,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "text-blue-600" : "")}
+          className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
           to='dashboard'
         >
           Dashboard
@@ -34,7 +34,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "text-blue-600" : "")}
+          className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
           to='menu'
         >
           Instructors
@@ -42,7 +42,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "text-blue-600" : "")}
+          className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
           to='/all-classes'
         >
           Classes
@@ -50,12 +50,12 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "text-blue-600" : "")}
+          className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
           to='/dashboard'
         ></NavLink>
       </li>
       <li>
-        <Link to='/dashboard/mycart'>
+        <Link to='/dashboard/selectclass'>
           <img className='w-14' src={cartImg} alt='' />
           <div className='badge badge-secondary rounded-full absolute bottom-0 right-0 w-4 h-4 p-5 text-lg font-semibold'>
             {cart?.length || 0}
@@ -71,7 +71,7 @@ const Navbar = () => {
         <>
           <li>
             <NavLink
-              className={({ isActive }) => (isActive ? "text-blue-600" : "")}
+              className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
               to='/login'
             >
               Login
@@ -111,7 +111,7 @@ const Navbar = () => {
           </div>
           <div className='flex items-center'>
             <img className='w-16' src={logo} alt='' />
-            <p className='ml-2 text-xl font-bold  uppercase'>Sports Camp</p>
+            <p className='ml-2 text-2xl font-extrabold   text-[#017f35] bg-slate-100 bg-opacity-10 p-2 rounded  '>Sports Academy</p>
           </div>
         </div>
         <div className='navbar-center hidden lg:flex'>

@@ -7,24 +7,30 @@
   margin: 0 auto;
   width: 100%;
 }
+
 .nav-bg {
   background-color: rgba(251, 251, 251, 0.5);
 }
+
 .menu :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
 .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
   border-radius: 0 !important;
 }
+
 .navbar a:hover {
   background: none;
   color: rgb(0, 0, 255);
 }
+
 .active {
   @apply border-blue-500;
 }
+
 .carousel {
   display: flex;
   justify-content: center;
 }
+
 .legend {
   bottom: 250px !important;
   background: transparent;
@@ -32,6 +38,7 @@
   font-weight: 700;
   color: black !important;
 }
+
 .banner-title {
   position: absolute;
 

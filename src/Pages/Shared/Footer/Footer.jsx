@@ -11,9 +11,9 @@ const Footer = () => {
           <div>
             <img className='w-20 rounded-full' src={logo} alt='' />
             <p className='text-[#9e7631]'>
-              Sports Camp
+              Sports Academy
               <br />
-              Providing reliable Summer Camp since 1992
+              Providing reliable Summer Academy since 1992
             </p>
           </div>
           <div className='text-white'>
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
         </footer>
         <p className=' text-center pb-5 text-[#a58c60]'>
-          <span className='text-[#fcc044]'>Sports Camp</span> © 2015 . All
+          <span className='text-[#fcc044]'>Sports Academy</span> © 2015 . All
           rights reserved.
         </p>
       </div>
