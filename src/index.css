@@ -52,3 +52,7 @@
 .swal2-confirm {
   margin-top: 18px !important;
 }
+
+.hero-overlay {
+  background-size: cover;
+}

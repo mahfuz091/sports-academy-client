@@ -23,7 +23,7 @@ const DashBoard = () => {
                 <div className="divider px-5"></div>
                 <ul className="menu p-4 w-80">
 
-                    <li><NavLink to="/dashboard/home"><FaHome className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}></FaHome> Student Dashboard</NavLink></li>
+                    <li><NavLink className={({ isActive }) => (isActive ? "text-[#017f35]" : "")} to="/dashboard/home"><FaHome ></FaHome> Student Dashboard</NavLink></li>
                     <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
                     <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
                     <li>
