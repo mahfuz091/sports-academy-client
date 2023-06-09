@@ -1,13 +1,40 @@
 import React from 'react';
 import useCart from '../../../hooks/useCart';
 import { Helmet } from 'react-helmet';
-import { FaTrashAlt, FaAmazonPay } from "react-icons/fa";
-import PageCover from '../../Shared/PageCover/PageCover';
+import { FaTrashAlt } from "react-icons/fa";
+
 import DashboardCover from '../../../DashboardCover/DashboardCover';
+import Swal from 'sweetalert2';
 
 const SelectedClass = () => {
-    const [cart] = useCart()
-    const total = cart.reduce((sum, item) => item.price + sum, 0);
+    const [cart, refetch] = useCart()
+    console.log(cart);
+
+    const handleDelete = (item) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/carts/${item._id}`, {
+                    method: "DELETE",
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire("Deleted!", "Your Selected Class has been deleted.", "success");
+                        }
+                    });
+            }
+        });
+    };
+
     return (
         <div className='w-full'>
             <Helmet>
@@ -54,7 +81,7 @@ const SelectedClass = () => {
                                 </td>
                                 <td>
                                     <button
-                                        // onClick={() => handleDelete(item)}
+                                        onClick={() => handleDelete(item)}
                                         className='btn bg-[#dd5449] hover:bg-[#b31409]  text-white'
                                     >
                                         <FaTrashAlt></FaTrashAlt>
