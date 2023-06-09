@@ -4,10 +4,12 @@ import { FaShoppingCart, FaWallet, FaUserAlt, FaHome } from "react-icons/fa";
 import useCart from "../hooks/useCart";
 import logo from "../assets/logo.png";
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 const DashBoard = () => {
   const [cart] = useCart();
   const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   return (
     <div className='drawer lg:drawer-open'>
       <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
@@ -50,6 +52,42 @@ const DashBoard = () => {
                   to='/dashboard/manage-user'
                 >
                   <FaUserAlt></FaUserAlt> Manage User
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to='/dashboard/history'>
+                  <FaWallet></FaWallet> Payment History
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#017f35]" : ""
+                  }
+                  to='/dashboard/selectclass'
+                >
+                  <FaShoppingCart></FaShoppingCart> Selected Class
+                  <span className='badge inl badge-secondary'>
+                    +{cart?.length || 0}
+                  </span>
+                </NavLink>
+              </li>
+            </>
+          ) : isInstructor ? (
+            <>
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#017f35]" : ""
+                  }
+                  to='/dashboard/instructorhome'
+                >
+                  <FaHome></FaHome> Instructor Dashboard
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to='/dashboard/reservations'>
+                  <FaUserAlt></FaUserAlt> Reservations
                 </NavLink>
               </li>
               <li>

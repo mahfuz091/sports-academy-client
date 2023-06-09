@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     logOut()
-      .then(() => { })
+      .then(() => {})
       .catch((error) => console.log(error));
   };
   const navOptions = (
@@ -35,7 +35,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
-          to='menu'
+          to='instructors'
         >
           Instructors
         </NavLink>
@@ -111,7 +111,9 @@ const Navbar = () => {
           </div>
           <div className='flex items-center'>
             <img className='w-16' src={logo} alt='' />
-            <p className='ml-2 text-2xl font-extrabold   text-[#017f35] bg-slate-100 bg-opacity-10 p-2 rounded  '>Sports Academy</p>
+            <p className='ml-2 text-2xl font-extrabold   text-[#017f35] bg-slate-100 bg-opacity-10 p-2 rounded  '>
+              Sports Academy
+            </p>
           </div>
         </div>
         <div className='navbar-center hidden lg:flex'>

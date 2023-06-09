@@ -3,13 +3,18 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const ClassCard = ({ singleClass }) => {
   const { image, instructor, name, price, seats, _id } = singleClass;
   const { user } = useAuth();
-  const [, refetch] = useCart();
+  const [cart, refetch] = useCart();
+  console.log(cart);
   const navigate = useNavigate();
   const location = useLocation();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   const handleSelect = () => {
     if (user) {
@@ -67,12 +72,26 @@ const ClassCard = ({ singleClass }) => {
         <p>Available Seat: {seats}</p>
         <p>Price: BDT {price}</p>
         <div className='card-actions'>
-          <button
-            onClick={() => handleSelect(singleClass)}
-            className='btn bg-[#dd5449] hover:bg-[#b31409] hover:text-white border-0'
-          >
-            Select Classes
-          </button>
+          {isAdmin || isInstructor ? (
+            <>
+              <button
+                disabled
+                onClick={() => handleSelect(singleClass)}
+                className='btn bg-[#dd5449] hover:bg-[#b31409] hover:text-white border-0'
+              >
+                Select Classes
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => handleSelect(singleClass)}
+                className='btn bg-[#dd5449] hover:bg-[#b31409] hover:text-white border-0'
+              >
+                Select Classes
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>
