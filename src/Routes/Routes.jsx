@@ -11,6 +11,7 @@ import Instructors from "../Pages/Instructors/Instructors";
 import AddClass from "../Pages/DashBoard/AddClass/AddClass";
 import ManageClass from "../Pages/DashBoard/ManageClass/ManageClass";
 import MyClass from "../Pages/DashBoard/MyClass/MyClass";
+import Payment from "../Pages/DashBoard/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,12 @@ export const router = createBrowserRouter([
         element: <SelectedClass />,
       },
       {
+        path: "payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/carts/${params.id}`),
+      },
+      {
         path: "manage-user",
         element: <ManageUser />,
       },
@@ -56,13 +63,13 @@ export const router = createBrowserRouter([
         element: <AddClass />,
       },
       {
-        path: 'manage-class',
+        path: "manage-class",
         element: <ManageClass />,
       },
       {
-        path: 'my-class',
+        path: "my-class",
         element: <MyClass />,
-      }
+      },
     ],
   },
 ]);

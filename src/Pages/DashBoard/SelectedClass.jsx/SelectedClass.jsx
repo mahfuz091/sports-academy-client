@@ -6,10 +6,11 @@ import { FaTrashAlt } from "react-icons/fa";
 import DashboardCover from "../../../DashboardCover/DashboardCover";
 import Swal from "sweetalert2";
 import useAdmin from "../../../hooks/useAdmin";
+import { Link } from "react-router-dom";
 
 const SelectedClass = () => {
   const [cart, refetch] = useCart();
-  console.log(cart);
+
   const [isAdmin] = useAdmin();
 
   const handleDelete = (item) => {
@@ -80,12 +81,14 @@ const SelectedClass = () => {
                 <td>{item.instructor}</td>
                 <td className='text-end'>${item.price}</td>
                 <td>
-                  <button
-                    // onClick={() => handleDelete(item)}
-                    className='btn bg-[#dd5449] hover:bg-[#b31409]  text-white'
-                  >
-                    <small>Pay</small>
-                  </button>
+                  <Link to={`/dashboard/payment/${item._id}`}>
+                    <button
+                      // onClick={() => handleDelete(item)}
+                      className='btn bg-[#dd5449] hover:bg-[#b31409]  text-white'
+                    >
+                      <small>Pay</small>
+                    </button>
+                  </Link>
                 </td>
                 <td>
                   <button
