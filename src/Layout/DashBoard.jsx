@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaUserAlt, FaHome } from "react-icons/fa";
+import { FaShoppingCart, FaWallet, FaUserAlt, FaHome, FaPlusSquare } from "react-icons/fa";
 import useCart from "../hooks/useCart";
 import logo from "../assets/logo.png";
 import useAdmin from "../hooks/useAdmin";
@@ -86,8 +86,8 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/reservations'>
-                  <FaUserAlt></FaUserAlt> Reservations
+                <NavLink to='/dashboard/add-class'>
+                  <FaPlusSquare></FaPlusSquare> Add A Class
                 </NavLink>
               </li>
               <li>

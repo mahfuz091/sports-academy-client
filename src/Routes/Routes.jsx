@@ -8,6 +8,7 @@ import DashBoard from "../Layout/DashBoard";
 import SelectedClass from "../Pages/DashBoard/SelectedClass.jsx/SelectedClass";
 import ManageUser from "../Pages/DashBoard/ManageUser/ManageUser";
 import Instructors from "../Pages/Instructors/Instructors";
+import AddClass from "../Pages/DashBoard/AddClass/AddClass";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
       {
         path: "manage-user",
         element: <ManageUser />,
+      },
+      {
+        path: "add-class",
+        element: <AddClass />,
       },
     ],
   },
