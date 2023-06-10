@@ -1,13 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { AuthContext } from "../../../Providers/Authprovider";
 import cartImg from "../../../assets/logo/cart.png";
 import useCart from "../../../hooks/useCart";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [cart] = useCart();
+  const [axiosSecure] = useAxiosSecure();
+  const { data: dbUser = [], refetch } = useQuery(["user"], async () => {
+    const res = await axiosSecure.get(`/user/${user?.email}`);
+    return res.data;
+  });
 
   const handleSignOut = () => {
     logOut()
@@ -24,14 +31,20 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
-          to='dashboard'
-        >
-          Dashboard
-        </NavLink>
-      </li>
+      {user ? (
+        <>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
+              to='/dashboard'
+            >
+              Dashboard
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        <></>
+      )}
       <li>
         <NavLink
           className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
@@ -48,20 +61,20 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
-          to='/dashboard'
-        ></NavLink>
-      </li>
-      <li>
-        <Link to='/dashboard/selectclass'>
-          <img className='w-14' src={cartImg} alt='' />
-          <div className='badge badge-secondary rounded-full absolute bottom-0 right-0 w-4 h-4 p-5 text-lg font-semibold'>
-            {cart?.length || 0}
-          </div>
-        </Link>
-      </li>
+      {user && dbUser?.role == "student" ? (
+        <>
+          <li>
+            <Link to='/dashboard/selectclass'>
+              <img className='w-14' src={cartImg} alt='' />
+              <div className='badge badge-secondary rounded-full absolute bottom-0 right-0 w-4 h-4 p-5 text-lg font-semibold'>
+                {cart?.length || 0}
+              </div>
+            </Link>
+          </li>
+        </>
+      ) : (
+        ""
+      )}
       {user ? (
         <>
           <img className='w-12 ml-5 rounded-full' src={user.photoURL} alt='' />

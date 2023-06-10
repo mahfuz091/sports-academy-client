@@ -56,6 +56,7 @@ const SelectedClass = () => {
               <th>#</th>
               <th>Photo</th>
               <th>Course Name</th>
+              <th>Instructor Name</th>
               <th>Price</th>
               <th>Payment</th>
               <th>Action</th>
@@ -76,6 +77,7 @@ const SelectedClass = () => {
                   </div>
                 </td>
                 <td>{item.name}</td>
+                <td>{item.instructor}</td>
                 <td className='text-end'>${item.price}</td>
                 <td>
                   <button

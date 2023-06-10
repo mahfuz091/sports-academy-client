@@ -1,6 +1,14 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaUserAlt, FaHome, FaPlusSquare } from "react-icons/fa";
+
+import {
+  FaShoppingCart,
+  FaWallet,
+  FaUserAlt,
+  FaHome,
+  FaPlusSquare,
+  FaSchool,
+} from "react-icons/fa";
 import useCart from "../hooks/useCart";
 import logo from "../assets/logo.png";
 import useAdmin from "../hooks/useAdmin";
@@ -55,23 +63,13 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink className={({ isActive }) =>
-                  isActive ? "text-[#017f35]" : ""
-                } to='/dashboard/manage-class'>
-                  <FaWallet></FaWallet> Manage Class
-                </NavLink>
-              </li>
-              <li>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "text-[#017f35]" : ""
                   }
-                  to='/dashboard/selectclass'
+                  to='/dashboard/manage-class'
                 >
-                  <FaShoppingCart></FaShoppingCart> Selected Class
-                  <span className='badge inl badge-secondary'>
-                    +{cart?.length || 0}
-                  </span>
+                  <FaSchool></FaSchool> Manage Class
                 </NavLink>
               </li>
             </>
@@ -88,20 +86,25 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink className={({ isActive }) =>
-                  isActive ? "text-[#017f35]" : ""
-                } to='/dashboard/add-class'>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#017f35]" : ""
+                  }
+                  to='/dashboard/add-class'
+                >
                   <FaPlusSquare></FaPlusSquare> Add A Class
                 </NavLink>
               </li>
               <li>
-                <NavLink className={({ isActive }) =>
-                  isActive ? "text-[#017f35]" : ""
-                } to='/dashboard/my-class'>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#017f35]" : ""
+                  }
+                  to='/dashboard/my-class'
+                >
                   <FaWallet></FaWallet> My Class
                 </NavLink>
               </li>
-
             </>
           ) : (
             <>
@@ -116,16 +119,22 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink className={({ isActive }) =>
-                  isActive ? "text-[#017f35]" : ""
-                } to='/dashboard/reservations'>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#017f35]" : ""
+                  }
+                  to='/dashboard/reservations'
+                >
                   <FaUserAlt></FaUserAlt> Reservations
                 </NavLink>
               </li>
               <li>
-                <NavLink className={({ isActive }) =>
-                  isActive ? "text-[#017f35]" : ""
-                } to='/dashboard/history'>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-[#017f35]" : ""
+                  }
+                  to='/dashboard/history'
+                >
                   <FaWallet></FaWallet> Payment History
                 </NavLink>
               </li>
