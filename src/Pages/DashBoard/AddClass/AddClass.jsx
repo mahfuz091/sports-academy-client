@@ -31,7 +31,7 @@ const AddClass = () => {
                 if (imageData.success) {
                     const imgURL = imageData.data.display_url;
                     const { name, price, instructor, seats, email } = data;
-                    const newClass = { name, price: parseFloat(price), seats: parseFloat(seats), instructor, email, image: imgURL }
+                    const newClass = { name, price: parseFloat(price), seats: parseFloat(seats), instructor, email, image: imgURL, status: 'pending' }
                     console.log(newClass)
                     axiosSecure.post('/all-classes', newClass)
                         .then(data => {
@@ -131,7 +131,7 @@ const AddClass = () => {
                 </div>
                 <div className="form-control w-full mb-4">
                     <label className="label">
-                        <span className="label-text font-semibold">Available Seats*</span>
+                        <span className="label-text font-semibold">Price*</span>
                     </label>
                     <input type="text" placeholder="Price"
                         {...register("price", { required: true })}

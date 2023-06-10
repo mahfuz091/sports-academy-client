@@ -55,8 +55,8 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/history'>
-                  <FaWallet></FaWallet> Payment History
+                <NavLink to='/dashboard/manage-class'>
+                  <FaWallet></FaWallet> Manage Class
                 </NavLink>
               </li>
               <li>
