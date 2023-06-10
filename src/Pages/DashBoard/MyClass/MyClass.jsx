@@ -40,7 +40,7 @@ const MyClass = () => {
                                 <td><img className='w-20 rounded-xl' src={singleClass.image} alt="" /></td>
                                 <td>{singleClass.name}</td>
                                 <td>{singleClass.status}</td>
-                                <td>Enrolled StudenT</td>
+                                <td>Enrolled Student</td>
                                 <td>{singleClass?.feedback}</td>
 
                                 <td>

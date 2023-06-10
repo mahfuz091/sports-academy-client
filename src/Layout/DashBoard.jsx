@@ -55,7 +55,9 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/manage-class'>
+                <NavLink className={({ isActive }) =>
+                  isActive ? "text-[#017f35]" : ""
+                } to='/dashboard/manage-class'>
                   <FaWallet></FaWallet> Manage Class
                 </NavLink>
               </li>
@@ -86,28 +88,20 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/add-class'>
+                <NavLink className={({ isActive }) =>
+                  isActive ? "text-[#017f35]" : ""
+                } to='/dashboard/add-class'>
                   <FaPlusSquare></FaPlusSquare> Add A Class
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/my-class'>
+                <NavLink className={({ isActive }) =>
+                  isActive ? "text-[#017f35]" : ""
+                } to='/dashboard/my-class'>
                   <FaWallet></FaWallet> My Class
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "text-[#017f35]" : ""
-                  }
-                  to='/dashboard/selectclass'
-                >
-                  <FaShoppingCart></FaShoppingCart> Selected Class
-                  <span className='badge inl badge-secondary'>
-                    +{cart?.length || 0}
-                  </span>
-                </NavLink>
-              </li>
+
             </>
           ) : (
             <>
@@ -122,12 +116,16 @@ const DashBoard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/reservations'>
+                <NavLink className={({ isActive }) =>
+                  isActive ? "text-[#017f35]" : ""
+                } to='/dashboard/reservations'>
                   <FaUserAlt></FaUserAlt> Reservations
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/history'>
+                <NavLink className={({ isActive }) =>
+                  isActive ? "text-[#017f35]" : ""
+                } to='/dashboard/history'>
                   <FaWallet></FaWallet> Payment History
                 </NavLink>
               </li>
