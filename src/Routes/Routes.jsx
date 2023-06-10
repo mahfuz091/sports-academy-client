@@ -10,6 +10,7 @@ import ManageUser from "../Pages/DashBoard/ManageUser/ManageUser";
 import Instructors from "../Pages/Instructors/Instructors";
 import AddClass from "../Pages/DashBoard/AddClass/AddClass";
 import ManageClass from "../Pages/DashBoard/ManageClass/ManageClass";
+import MyClass from "../Pages/DashBoard/MyClass/MyClass";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
       {
         path: 'manage-class',
         element: <ManageClass />,
+      },
+      {
+        path: 'my-class',
+        element: <MyClass />,
       }
     ],
   },
