@@ -5,7 +5,7 @@ import PageCover from "../Shared/PageCover/PageCover";
 const AllClasses = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/all-classes")
+    fetch("https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/all-classes")
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);

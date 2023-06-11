@@ -12,6 +12,7 @@ import AddClass from "../Pages/DashBoard/AddClass/AddClass";
 import ManageClass from "../Pages/DashBoard/ManageClass/ManageClass";
 import MyClass from "../Pages/DashBoard/MyClass/MyClass";
 import Payment from "../Pages/DashBoard/Payment/Payment";
+import EnrollClasses from "../Pages/DashBoard/EnrollClasses/EnrollClasses";
 
 export const router = createBrowserRouter([
   {
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
         path: "payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/carts/${params.id}`),
+          fetch(`https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/carts/${params.id}`),
       },
       {
         path: "manage-user",
@@ -70,6 +71,11 @@ export const router = createBrowserRouter([
         path: "my-class",
         element: <MyClass />,
       },
+      {
+        path: 'enroll-classes',
+        element: <EnrollClasses />,
+
+      }
     ],
   },
 ]);

@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
   const navOptions = (
@@ -77,8 +77,8 @@ const Navbar = () => {
       )}
       {user ? (
         <>
-          <img className='w-12 ml-5 rounded-full' src={user.photoURL} alt='' />
-          <button onClick={handleSignOut}>SignOut</button>
+          <img className='w-12 ml-5 rounded-full mr-4' src={user.photoURL} alt='' />
+          <Link onClick={handleSignOut}>SignOut</Link>
         </>
       ) : (
         <>
@@ -130,7 +130,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className='navbar-center hidden lg:flex'>
-          <ul className='menu menu-horizontal items-center font-semibold text-lg   px-1'>
+          <ul className='menu menu-horizontal items-center font-semibold text-base   px-1'>
             {navOptions}
           </ul>
         </div>

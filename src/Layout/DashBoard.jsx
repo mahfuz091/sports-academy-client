@@ -123,9 +123,9 @@ const DashBoard = () => {
                   className={({ isActive }) =>
                     isActive ? "text-[#017f35]" : ""
                   }
-                  to='/dashboard/reservations'
+                  to='/dashboard/enroll-classes'
                 >
-                  <FaUserAlt></FaUserAlt> Reservations
+                  <FaUserAlt></FaUserAlt> Enroll Class
                 </NavLink>
               </li>
               <li>

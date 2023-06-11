@@ -16,7 +16,7 @@ const Payment = () => {
         <title>Sports Avademy | Payment</title>
       </Helmet>
       <DashboardCover title='Payment'></DashboardCover>
-      <h2 className='text-3xl'> Teka o teka tumi uira uira aso...</h2>
+      <h2 className='text-3xl'> Payment</h2>
       <Elements stripe={stripePromise}>
         <CheckoutForm
           price={selectClass.price}

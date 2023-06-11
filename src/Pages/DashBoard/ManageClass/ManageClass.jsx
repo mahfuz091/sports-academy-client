@@ -14,7 +14,7 @@ const ManageClass = () => {
     });
 
     const handleApproved = (singleClass) => {
-        fetch(`http://localhost:5000/all-classes/approved/${singleClass._id}`, {
+        fetch(`https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/all-classes/approved/${singleClass._id}`, {
             method: "PATCH",
         })
             .then((res) => res.json())
@@ -34,7 +34,7 @@ const ManageClass = () => {
     }
 
     const handleDeny = (singleClass) => {
-        fetch(`http://localhost:5000/all-classes/deny/${singleClass._id}`, {
+        fetch(`https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/all-classes/deny/${singleClass._id}`, {
             method: "PATCH",
         })
             .then((res) => res.json())
