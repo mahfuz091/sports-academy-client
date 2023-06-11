@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 import DashboardCover from "../../../DashboardCover/DashboardCover";
+import { FaEdit } from "react-icons/fa";
+import UpdateFeedBackModal from "../UpdateFeedbackModal/UpdateFeedBackModal";
+import MyClassRow from "./MyClassRow";
 
 const MyClass = () => {
+
   const { user } = useAuth();
+
   const [axiosSecure] = useAxiosSecure();
   const { data: classes = [], refetch } = useQuery(["my-classes"], async () => {
     const res = await axiosSecure.get(`/my-classes?email=${user.email}`);
     return res.data;
   });
+
+
   return (
     <div className='w-full'>
       <Helmet>
@@ -35,24 +43,11 @@ const MyClass = () => {
           </thead>
           <tbody>
             {classes.map((singleClass, index) => (
-              <tr key={singleClass._id}>
-                <th>{index + 1}</th>
-                <td>
-                  <img
-                    className='w-20 rounded-xl'
-                    src={singleClass.image}
-                    alt=''
-                  />
-                </td>
-                <td>{singleClass.name}</td>
-                <td>{singleClass.status}</td>
-                <td>{singleClass.student}</td>
-                <td>{singleClass?.feedback}</td>
-
-                <td>
-                  <button className='btn'>Update</button>
-                </td>
-              </tr>
+              <MyClassRow
+                key={singleClass._id}
+                singleClass={singleClass}
+                index={index}
+              ></MyClassRow>
             ))}
           </tbody>
         </table>

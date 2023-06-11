@@ -83,7 +83,7 @@ const SelectedClass = () => {
                 <td>
                   <Link to={`/dashboard/payment/${item._id}`}>
                     <button
-                      // onClick={() => handleDelete(item)}
+
                       className='btn bg-[#dd5449] hover:bg-[#b31409]  text-white'
                     >
                       <small>Pay</small>

@@ -1,0 +1,60 @@
+import React, { useState } from 'react';
+import UpdateFeedBackModal from '../UpdateFeedbackModal/UpdateFeedBackModal';
+import { FaEdit } from 'react-icons/fa';
+import axios from 'axios';
+import UpdateClass from '../UpdateClass/UpdateClass';
+
+const MyClassRow = ({ singleClass, index }) => {
+    const [showModal, setShowModal] = useState(false);
+    const handleUpdate = (data) => {
+        console.log(data);
+        const url = 'http://localhost:5000/update-classes'; // URL to send the PATCH request
+        const updateData = { name: 'John Doe' }; // Data to be sent in the request body
+
+        axios.patch(url, updateData)
+            .then(response => {
+                // Handle successful response
+                console.log(response.data);
+            })
+            .catch(error => {
+                // Handle error
+                console.error(error);
+            });
+    }
+    return (
+        <tr >
+            <th>{index + 1}</th>
+            <td>
+                <img
+                    className='w-20 rounded-xl'
+                    src={singleClass?.image}
+                    alt=''
+                />
+            </td>
+            <td>{singleClass.name}</td>
+            <td>{singleClass.status}</td>
+            <td>{singleClass.student}</td>
+            <td>{singleClass?.feedback}</td>
+
+            <td>
+                <button
+                    onClick={() => setShowModal(true)}
+                    className='btn'
+                >
+                    <FaEdit></FaEdit> Update
+                </button>
+                {showModal ? (
+                    <UpdateClass
+                        key={singleClass._id}
+                        setShowModal={setShowModal}
+                        singleClass={singleClass}
+                        handleUpdate={handleUpdate}
+                    ></UpdateClass>
+                ) : null}
+
+            </td>
+        </tr>
+    );
+};
+
+export default MyClassRow;
