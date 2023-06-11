@@ -4,7 +4,7 @@ import "./CheckoutForm.css";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-const CheckoutForm = ({ price, id, selectClassId }) => {
+const CheckoutForm = ({ selectClass, price, id, selectClassId }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
@@ -84,7 +84,7 @@ const CheckoutForm = ({ price, id, selectClassId }) => {
           method: "PATCH",
         })
           .then((res) => res.json())
-          .then((data) => {});
+          .then((data) => { });
 
         if (res.data.insertResult.insertedId) {
           // display confirm

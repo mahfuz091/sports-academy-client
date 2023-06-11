@@ -61,12 +61,12 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      {user && dbUser?.role == "student" ? (
+      {/* {user && dbUser?.role == "student" ? (
         <>
           <li>
             <Link to='/dashboard/selectclass'>
-              <img className='w-14' src={cartImg} alt='' />
-              <div className='badge badge-secondary rounded-full absolute bottom-0 right-0 w-4 h-4 p-5 text-lg font-semibold'>
+              Selected Classes
+              <div className='badge bg-[#017f35] text-white  rounded-full absolute bottom-0 -right-8 w-4 h-4 p-5 text-lg font-semibold'>
                 {cart?.length || 0}
               </div>
             </Link>
@@ -74,10 +74,10 @@ const Navbar = () => {
         </>
       ) : (
         ""
-      )}
+      )} */}
       {user ? (
         <>
-          <img className='w-12 ml-5 rounded-full mr-4' src={user.photoURL} alt='' />
+          <img className='w-12 ml-10 rounded-full mr-4' src={user.photoURL} alt='' />
           <Link onClick={handleSignOut}>SignOut</Link>
         </>
       ) : (

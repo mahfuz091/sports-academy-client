@@ -19,6 +19,7 @@ const Payment = () => {
       <h2 className='text-3xl'> Payment</h2>
       <Elements stripe={stripePromise}>
         <CheckoutForm
+          selectClass={selectClass}
           price={selectClass.price}
           id={selectClass._id}
           selectClassId={selectClass.selectClassId}
