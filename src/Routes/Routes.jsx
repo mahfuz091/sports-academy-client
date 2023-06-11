@@ -13,6 +13,10 @@ import ManageClass from "../Pages/DashBoard/ManageClass/ManageClass";
 import MyClass from "../Pages/DashBoard/MyClass/MyClass";
 import Payment from "../Pages/DashBoard/Payment/Payment";
 import EnrollClasses from "../Pages/DashBoard/EnrollClasses/EnrollClasses";
+import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
 export const router = createBrowserRouter([
   {
@@ -43,8 +47,27 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <DashBoard></DashBoard>,
+    element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
     children: [
+      // admin route
+      {
+        path: "manage-user",
+        element: <AdminRoute><ManageUser /></AdminRoute>,
+      },
+      {
+        path: "manage-class",
+        element: <AdminRoute><ManageClass /></AdminRoute>,
+      },
+      // instructor route
+      {
+        path: "add-class",
+        element: <InstructorRoute><AddClass /></InstructorRoute>,
+      },
+      {
+        path: "my-class",
+        element: <InstructorRoute><MyClass /></InstructorRoute>,
+      },
+      // sutdent route
       {
         path: "selectclass",
         element: <SelectedClass />,
@@ -56,25 +79,13 @@ export const router = createBrowserRouter([
           fetch(`https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/carts/${params.id}`),
       },
       {
-        path: "manage-user",
-        element: <ManageUser />,
-      },
-      {
-        path: "add-class",
-        element: <AddClass />,
-      },
-      {
-        path: "manage-class",
-        element: <ManageClass />,
-      },
-      {
-        path: "my-class",
-        element: <MyClass />,
-      },
-      {
         path: 'enroll-classes',
         element: <EnrollClasses />,
 
+      },
+      {
+        path: 'history',
+        element: <PaymentHistory></PaymentHistory>
       }
     ],
   },

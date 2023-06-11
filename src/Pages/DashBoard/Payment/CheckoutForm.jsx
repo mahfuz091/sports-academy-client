@@ -75,7 +75,7 @@ const CheckoutForm = ({ selectClass, price, id, selectClassId }) => {
         transactionId: paymentIntent.id,
         price,
         date: new Date(),
-        status: "service pending",
+        status: "Successfully Enrolled",
       };
 
       axiosSecure.post("/payments", payment).then((res) => {

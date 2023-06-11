@@ -82,7 +82,7 @@ const ManageUser = () => {
       </Helmet>
       <DashboardCover title='Manage User'></DashboardCover>
       <div className='overflow-x-auto'>
-        <table className='table table-zebra w-full'>
+        <table className='table  w-full'>
           {/* head */}
           <thead>
             <tr>
