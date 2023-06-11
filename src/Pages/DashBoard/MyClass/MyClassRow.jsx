@@ -9,7 +9,7 @@ const MyClassRow = ({ singleClass, index, refetch }) => {
     const [showModal, setShowModal] = useState(false);
     const handleUpdate = (data) => {
         console.log(data);
-        const url = `http://localhost:5000/update-classes/${singleClass._id}`; // URL to send the PATCH request
+        const url = `https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/update-classes/${singleClass._id}`; // URL to send the PATCH request
         // const updateData = { data }; // Data to be sent in the request body
 
         axios.patch(url, data)
