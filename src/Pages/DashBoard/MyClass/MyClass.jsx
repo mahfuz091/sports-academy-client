@@ -35,6 +35,7 @@ const MyClass = () => {
               <th>Image</th>
               <th>Class Name</th>
               <th>Status</th>
+              <th>Available Seats</th>
               <th>Enrolled Student</th>
               <th>FeedBack</th>
 
@@ -47,6 +48,7 @@ const MyClass = () => {
                 key={singleClass._id}
                 singleClass={singleClass}
                 index={index}
+                refetch={refetch}
               ></MyClassRow>
             ))}
           </tbody>

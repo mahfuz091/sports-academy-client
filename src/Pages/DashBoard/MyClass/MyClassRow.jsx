@@ -3,18 +3,30 @@ import UpdateFeedBackModal from '../UpdateFeedbackModal/UpdateFeedBackModal';
 import { FaEdit } from 'react-icons/fa';
 import axios from 'axios';
 import UpdateClass from '../UpdateClass/UpdateClass';
+import Swal from 'sweetalert2';
 
-const MyClassRow = ({ singleClass, index }) => {
+const MyClassRow = ({ singleClass, index, refetch }) => {
     const [showModal, setShowModal] = useState(false);
     const handleUpdate = (data) => {
         console.log(data);
-        const url = 'http://localhost:5000/update-classes'; // URL to send the PATCH request
-        const updateData = { name: 'John Doe' }; // Data to be sent in the request body
+        const url = `http://localhost:5000/update-classes/${singleClass._id}`; // URL to send the PATCH request
+        // const updateData = { data }; // Data to be sent in the request body
 
-        axios.patch(url, updateData)
+        axios.patch(url, data)
             .then(response => {
                 // Handle successful response
                 console.log(response.data);
+                if (response.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        icon: "success",
+                        title: "Your Class Update Successfully",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                    setShowModal(false);
+                }
+                console.log(response);
             })
             .catch(error => {
                 // Handle error
@@ -33,6 +45,7 @@ const MyClassRow = ({ singleClass, index }) => {
             </td>
             <td>{singleClass.name}</td>
             <td>{singleClass.status}</td>
+            <td>{singleClass.seats}</td>
             <td>{singleClass.student}</td>
             <td>{singleClass?.feedback}</td>
 
