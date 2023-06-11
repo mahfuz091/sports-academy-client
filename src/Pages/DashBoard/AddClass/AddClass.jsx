@@ -164,10 +164,20 @@ const AddClass = () => {
           <input
             type='file'
             {...register("image", { required: true })}
-            className='file-input file-input-bordered w-full '
+            className='file-input file-input-bordered w-full block w-full text-sm text-slate-500
+            file:py-2 
+           file:rounded-full file:border-0
+           file:text-sm file:font-semibold
+           file:bg-violet-50 file:text-violet-700
+           hover:file:bg-violet-100 '
           />
         </div>
-        <input className='btn btn-sm mt-4' type='submit' value='Add Item' />
+
+        <input
+          className='btn btn-sm mt-4 w-full py-8 bg-[#dd5449] hover:bg-[#b31409] text-white '
+          type='submit'
+          value='Add Class'
+        />
       </form>
     </div>
   );

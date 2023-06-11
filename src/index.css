@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Aleo", serif !important;
+}
 .wrapper {
   max-width: 1320px;
   margin: 0 auto;
@@ -49,10 +52,16 @@
   color: #fcc044;
 }
 
-.swal2-confirm {
-  margin-top: 18px !important;
-}
-
 .hero-overlay {
   background-size: cover;
+}
+
+.swal2-confirm {
+  margin-top: 15px !important;
+}
+.swal2-styled {
+  padding-top: 0 !important;
+}
+.file-input {
+  height: 4rem !important;
 }

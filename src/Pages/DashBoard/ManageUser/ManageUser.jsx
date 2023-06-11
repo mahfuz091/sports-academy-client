@@ -14,9 +14,12 @@ const ManageUser = () => {
   });
 
   const handleMakeAdmin = (user) => {
-    fetch(`https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/users/admin/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
@@ -33,9 +36,12 @@ const ManageUser = () => {
   };
 
   const handleMakeInstructor = (user) => {
-    fetch(`https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/users/instructor/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/users/instructor/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
@@ -62,9 +68,12 @@ const ManageUser = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/users/${user._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/users/${user._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -82,7 +91,7 @@ const ManageUser = () => {
       </Helmet>
       <DashboardCover title='Manage User'></DashboardCover>
       <div className='overflow-x-auto'>
-        <table className='table  w-full'>
+        <table className='table text-center w-full'>
           {/* head */}
           <thead>
             <tr>

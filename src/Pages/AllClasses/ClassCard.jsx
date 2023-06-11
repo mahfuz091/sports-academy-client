@@ -26,13 +26,16 @@ const ClassCard = ({ singleClass }) => {
         price,
         email: user.email,
       };
-      fetch("https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/carts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(selectClass),
-      })
+      fetch(
+        "https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/carts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(selectClass),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
@@ -72,7 +75,7 @@ const ClassCard = ({ singleClass }) => {
         <img src={image} alt='' className='rounded-xl' />
       </figure>
       <div className='card-body items-center'>
-        <h2 className=''>{name}</h2>
+        <h2 className=' text-center text-white text-2xl font-bold'>{name}</h2>
         <h2>Instructor: {instructor}</h2>
         <p>Available Seat: {seats}</p>
         <p>Price: BDT {price}</p>
@@ -82,7 +85,7 @@ const ClassCard = ({ singleClass }) => {
               <button
                 disabled
                 onClick={() => handleSelect(singleClass)}
-                className='btn bg-[#dd5449] hover:bg-[#b31409] hover:text-white border-0'
+                className='btn bg-[#dd5449] hover:bg-[#b31409] text-white border-0'
               >
                 Select Classes
               </button>
@@ -91,7 +94,7 @@ const ClassCard = ({ singleClass }) => {
             <>
               <button
                 onClick={() => handleSelect(singleClass)}
-                className='btn bg-[#dd5449] hover:bg-[#b31409] hover:text-white border-0'
+                className='btn bg-[#dd5449] hover:bg-[#b31409] text-white border-0'
               >
                 Select Classes
               </button>
