@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
@@ -7,11 +7,17 @@ import animationData from "../../assets/Lotties/login.json";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/Authprovider";
 import Swal from "sweetalert2";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const togglePass = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   const from = location.state?.from?.pathname || "/";
   const {
@@ -65,16 +71,28 @@ const Login = () => {
                 <span className='text-warning'>This field is required</span>
               )}
             </div>
-            <div className='form-control'>
+            <div className='form-control relative'>
               <label className='label'>
                 <span className='text-xl'>Password</span>
               </label>
               <input
-                type='password'
+                type={isPasswordVisible ? "text" : "password"}
                 placeholder='password'
                 className='input input-bordered'
                 {...register("password", { required: true })}
               />
+              <div className='cursor-pointer' onClick={togglePass}>
+                {isPasswordVisible ? (
+                  <span className='absolute inset-y-0 right-0 flex items-center px-4 '>
+                    <FaEye></FaEye>
+                  </span>
+                ) : (
+                  <span className='absolute inset-y-0 right-0 flex items-center px-4 '>
+                    <FaEyeSlash></FaEyeSlash>
+                  </span>
+                )}
+              </div>
+
               {errors.password && (
                 <span className='text-warning'>This field is required</span>
               )}
@@ -88,7 +106,7 @@ const Login = () => {
             <div className='form-control mt-6'>
               <input
                 type='submit'
-                className='btn border-none btn-login'
+                className='btn border-none bg-[#dd5449] text-white hover:bg-[#b31409]'
                 value='Login Now'
               />
             </div>

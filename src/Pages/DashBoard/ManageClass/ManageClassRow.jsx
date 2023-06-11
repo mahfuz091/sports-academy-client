@@ -68,26 +68,37 @@ const ManageClassRow = ({
               <div className='flex gap-2'>
                 <button
                   onClick={() => handleApproved(singleClass)}
-                  className='btn'
+                  className='btn bg-[#dd5449] text-white hover:bg-[#b31409]'
                 >
                   Approved
                 </button>
-                <button onClick={() => handleDeny(singleClass)} className='btn'>
+                <button
+                  onClick={() => handleDeny(singleClass)}
+                  className='btn bg-[#dd5449] text-white hover:bg-[#b31409]'
+                >
                   Deny
                 </button>
               </div>
             </>
           )}
 
-          {singleClass.status == "approved" ? (
+          {singleClass.status == "approved" ||
+          singleClass.status == "pending" ? (
             <>
-              <button onClick={() => setShowModal(true)} className='btn ml-2'>
+              <button
+                disabled
+                onClick={() => setShowModal(true)}
+                className='btn ml-2 bg-[#dd5449] text-white hover:bg-[#b31409]'
+              >
                 Send Feedback
               </button>
             </>
           ) : (
             <>
-              <button onClick={() => setShowModal(true)} className='btn ml-2'>
+              <button
+                onClick={() => setShowModal(true)}
+                className='btn ml-2 bg-[#dd5449] text-white hover:bg-[#b31409]'
+              >
                 Send Feedback
               </button>
             </>

@@ -47,25 +47,45 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <DashBoard></DashBoard>
+      </PrivateRoute>
+    ),
     children: [
       // admin route
       {
         path: "manage-user",
-        element: <AdminRoute><ManageUser /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <ManageUser />
+          </AdminRoute>
+        ),
       },
       {
         path: "manage-class",
-        element: <AdminRoute><ManageClass /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <ManageClass />
+          </AdminRoute>
+        ),
       },
       // instructor route
       {
         path: "add-class",
-        element: <InstructorRoute><AddClass /></InstructorRoute>,
+        element: (
+          <InstructorRoute>
+            <AddClass />
+          </InstructorRoute>
+        ),
       },
       {
         path: "my-class",
-        element: <InstructorRoute><MyClass /></InstructorRoute>,
+        element: (
+          <InstructorRoute>
+            <MyClass />
+          </InstructorRoute>
+        ),
       },
       // sutdent route
       {
@@ -76,17 +96,18 @@ export const router = createBrowserRouter([
         path: "payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/carts/${params.id}`),
+          fetch(
+            `https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/booked-classes/${params.id}`
+          ),
       },
       {
-        path: 'enroll-classes',
+        path: "enroll-classes",
         element: <EnrollClasses />,
-
       },
       {
-        path: 'history',
-        element: <PaymentHistory></PaymentHistory>
-      }
+        path: "history",
+        element: <PaymentHistory></PaymentHistory>,
+      },
     ],
   },
 ]);

@@ -47,7 +47,10 @@ const MyClassRow = ({ singleClass, index, refetch }) => {
       <td>{singleClass?.feedback}</td>
 
       <td>
-        <button onClick={() => setShowModal(true)} className='btn'>
+        <button
+          onClick={() => setShowModal(true)}
+          className='btn bg-[#dd5449] text-white hover:bg-[#b31409]'
+        >
           <FaEdit></FaEdit> Update
         </button>
         {showModal ? (

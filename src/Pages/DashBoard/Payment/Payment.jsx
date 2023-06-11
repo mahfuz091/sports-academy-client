@@ -5,10 +5,11 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { useLoaderData } from "react-router-dom";
+import useBookedClass from "../../../hooks/useBookedClass";
 
 const Payment = () => {
   const selectClass = useLoaderData();
-  console.log(selectClass);
+
   const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
   return (
     <div className='w-full'>
@@ -16,7 +17,7 @@ const Payment = () => {
         <title>Sports Avademy | Payment</title>
       </Helmet>
       <DashboardCover title='Payment'></DashboardCover>
-      <h2 className='text-3xl'> Payment</h2>
+      <h2 className='text-3xl text-center'> Payment</h2>
       <Elements stripe={stripePromise}>
         <CheckoutForm
           selectClass={selectClass}

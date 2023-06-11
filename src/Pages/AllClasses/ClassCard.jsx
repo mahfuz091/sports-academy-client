@@ -2,15 +2,17 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
-import useCart from "../../hooks/useCart";
+
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
+import useBookedClass from "../../hooks/useBookedClass";
 
 const ClassCard = ({ singleClass }) => {
   const { image, instructor, name, price, seats, _id } = singleClass;
   const { user } = useAuth();
-  const [cart, refetch] = useCart();
-  console.log(cart);
+
+  const [bookedClasses, refetch] = useBookedClass();
+
   const navigate = useNavigate();
   const location = useLocation();
   const [isAdmin] = useAdmin();
@@ -27,7 +29,7 @@ const ClassCard = ({ singleClass }) => {
         email: user.email,
       };
       fetch(
-        "https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/carts",
+        "https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/booked-classes",
         {
           method: "POST",
           headers: {
@@ -43,7 +45,7 @@ const ClassCard = ({ singleClass }) => {
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "Class added on the cart.",
+              title: "Class added on the My Booking.",
               showConfirmButton: false,
               timer: 1500,
             });

@@ -28,13 +28,16 @@ const SocialLogin = () => {
         role: "student",
         image: loggedInUser.photoURL,
       };
-      fetch("https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(saveUser),
-      })
+      fetch(
+        "https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/users",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        }
+      )
         .then((res) => res.json())
         .then(() => {
           navigate(from, { replace: true });
@@ -49,7 +52,7 @@ const SocialLogin = () => {
       <div className='w-full text-center my-4'>
         <button
           onClick={handleGoogleSignIn}
-          className='btn btn-circle hover:bg-[#318c3b] hover:text-white'
+          className='btn btn-circle bg-[#dd5449] text-white hover:bg-[#b31409]'
         >
           <FaGoogle></FaGoogle>
         </button>

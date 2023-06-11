@@ -2,14 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { AuthContext } from "../../../Providers/Authprovider";
-import cartImg from "../../../assets/logo/cart.png";
-import useCart from "../../../hooks/useCart";
+
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import useBookedClass from "../../../hooks/useBookedClass";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [cart] = useCart();
+  const [bookedClasses] = useBookedClass();
   const [axiosSecure] = useAxiosSecure();
   const { data: dbUser = [], refetch } = useQuery(["user"], async () => {
     const res = await axiosSecure.get(`/user/${user?.email}`);
@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     logOut()
-      .then(() => { })
+      .then(() => {})
       .catch((error) => console.log(error));
   };
   const navOptions = (
@@ -61,23 +61,25 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      {/* {user && dbUser?.role == "student" ? (
+      {user && dbUser?.role == "student" ? (
         <>
           <li>
             <Link to='/dashboard/selectclass'>
               Selected Classes
               <div className='badge bg-[#017f35] text-white  rounded-full absolute bottom-0 -right-8 w-4 h-4 p-5 text-lg font-semibold'>
-                {cart?.length || 0}
+                {bookedClasses?.length || 0}
               </div>
             </Link>
           </li>
         </>
-      ) : (
-        ""
-      )} */}
+      ) : null}
       {user ? (
         <>
-          <img className='w-12 ml-10 rounded-full mr-4' src={user.photoURL} alt='' />
+          <img
+            className='w-12 ml-10 rounded-full mr-4'
+            src={user.photoURL}
+            alt=''
+          />
           <Link onClick={handleSignOut}>SignOut</Link>
         </>
       ) : (

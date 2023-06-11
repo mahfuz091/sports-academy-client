@@ -3,16 +3,21 @@ import React, { useEffect, useState } from "react";
 import "./CheckoutForm.css";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useBookedClass from "../../../hooks/useBookedClass";
+import { Navigate, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const CheckoutForm = ({ selectClass, price, id, selectClassId }) => {
+const CheckoutForm = ({ price, id, selectClassId, selectClass }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
+  const [, refetch] = useBookedClass();
   useEffect(() => {
     if (price > 0) {
       axiosSecure.post("/create-payment-intent", { price }).then((res) => {
@@ -67,6 +72,7 @@ const CheckoutForm = ({ selectClass, price, id, selectClassId }) => {
     console.log("payment intent", paymentIntent);
     setProcessing(false);
     if (paymentIntent.status === "succeeded") {
+      refetch();
       setTransactionId(paymentIntent.id);
       // save payment information to the server
       const payment = {
@@ -80,17 +86,31 @@ const CheckoutForm = ({ selectClass, price, id, selectClassId }) => {
 
       axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
-        fetch(`https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/all-classes/seats/${selectClassId}`, {
-          method: "PATCH",
-        })
+        fetch(
+          `https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/all-classes/seats/${selectClassId}`,
+          {
+            method: "PATCH",
+          }
+        )
           .then((res) => res.json())
-          .then((data) => { });
+          .then((data) => {});
 
         if (res.data.insertResult.insertedId) {
           // display confirm
+          refetch();
+          navigate("/dashboard/history");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Payment Successfull",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
         if (res.data.deleteResult.deletedCount > 0) {
           // display confirm
+          refetch();
+          navigate("/dashboard/history");
         }
       });
     }
@@ -98,24 +118,58 @@ const CheckoutForm = ({ selectClass, price, id, selectClassId }) => {
   return (
     <div className='mb-20'>
       <form onSubmit={handleSubmit}>
-        <CardElement
-          options={{
-            style: {
-              base: {
-                fontSize: "16px",
-                color: "#424770",
-                "::placeholder": {
-                  color: "#aab7c4",
+        <div className='form-control'>
+          <label className='label'>
+            <span className='text-xl'>Course Name</span>
+          </label>
+          <input
+            readOnly
+            type='text'
+            placeholder='name'
+            className='input input-bordered'
+            defaultValue={selectClass.name}
+          />
+        </div>
+        <div className='form-control'>
+          <label className='label'>
+            <span className='text-xl'>Price</span>
+          </label>
+          <input
+            readOnly
+            type='text'
+            placeholder='name'
+            className='input input-bordered'
+            defaultValue={selectClass.price}
+          />
+        </div>
+        <div className='form-control'>
+          <label className='label'>
+            <span className='text-xl'>Payments Details</span>
+          </label>
+          <CardElement
+            options={{
+              style: {
+                base: {
+                  fontSize: "16px",
+                  color: "#424770",
+                  "::placeholder": {
+                    color: "#aab7c4",
+                  },
+                },
+                invalid: {
+                  color: "#9e2146",
                 },
               },
-              invalid: {
-                color: "#9e2146",
-              },
-            },
-          }}
-        />
-        <button type='submit' disabled={!stripe}>
-          Pay
+            }}
+          />
+        </div>
+
+        <button
+          className='bg-[#dd5449] hover:bg-[#b31409]'
+          type='submit'
+          disabled={!stripe}
+        >
+          Pay {selectClass.price}
         </button>
       </form>
       {cardError && <p className='text-red-600 ml-8'>{cardError}</p>}

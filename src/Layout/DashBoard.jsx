@@ -9,13 +9,14 @@ import {
   FaPlusSquare,
   FaSchool,
 } from "react-icons/fa";
-import useCart from "../hooks/useCart";
+
 import logo from "../assets/logo.png";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import useBookedClass from "../hooks/useBookedClass";
 
 const DashBoard = () => {
-  const [cart] = useCart();
+  const [bookedClasses] = useBookedClass();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   return (
@@ -147,7 +148,7 @@ const DashBoard = () => {
                 >
                   <FaShoppingCart></FaShoppingCart> Selected Class
                   <span className='badge inl badge-secondary'>
-                    +{cart?.length || 0}
+                    +{bookedClasses?.length || 0}
                   </span>
                 </NavLink>
               </li>

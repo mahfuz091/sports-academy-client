@@ -120,7 +120,7 @@ const ManageUser = () => {
                   ) : (
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className='btn btn-ghost bg-orange-600  text-white'
+                      className='btn bg-[#dd5449] text-white hover:bg-[#b31409]'
                     >
                       <FaUserShield></FaUserShield>
                     </button>
@@ -130,14 +130,14 @@ const ManageUser = () => {
                   {user.role === "instructor" ? (
                     <button
                       disabled
-                      className='btn btn-ghost bg-orange-600  text-white'
+                      className='btn bg-[#dd5449] text-white hover:bg-[#b31409]'
                     >
                       <FaUserShield></FaUserShield>
                     </button>
                   ) : (
                     <button
                       onClick={() => handleMakeInstructor(user)}
-                      className='btn btn-ghost bg-orange-600  text-white'
+                      className='btn bg-[#dd5449] text-white hover:bg-[#b31409]'
                     >
                       <FaUserShield></FaUserShield>
                     </button>
@@ -146,7 +146,7 @@ const ManageUser = () => {
                 <td>
                   <button
                     onClick={() => handleDelete(user)}
-                    className='btn btn-ghost bg-red-600  text-white'
+                    className='btn bg-[#dd5449] text-white hover:bg-[#b31409]'
                   >
                     <FaTrashAlt></FaTrashAlt>
                   </button>

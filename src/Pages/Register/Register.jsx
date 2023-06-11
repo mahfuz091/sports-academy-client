@@ -47,13 +47,16 @@ const Register = () => {
                   role: "student",
                   image: imageUrl,
                 };
-                fetch("https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/users", {
-                  method: "POST",
-                  headers: {
-                    "content-type": "application/json",
-                  },
-                  body: JSON.stringify(saveUser),
-                })
+                fetch(
+                  "https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/users",
+                  {
+                    method: "POST",
+                    headers: {
+                      "content-type": "application/json",
+                    },
+                    body: JSON.stringify(saveUser),
+                  }
+                )
                   .then((res) => res.json())
                   .then((data) => {
                     if (data.insertedId) {
@@ -197,7 +200,7 @@ const Register = () => {
               <div className='form-control mt-6'>
                 <input
                   type='submit'
-                  className='btn border-none btn-login'
+                  className='btn border-none bg-[#dd5449] text-white hover:bg-[#b31409]'
                   value='Register Now'
                 />
               </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import useCart from "../../../hooks/useCart";
+
 import { Helmet } from "react-helmet";
 import { FaTrashAlt } from "react-icons/fa";
 
@@ -7,9 +7,10 @@ import DashboardCover from "../../../DashboardCover/DashboardCover";
 import Swal from "sweetalert2";
 import useAdmin from "../../../hooks/useAdmin";
 import { Link } from "react-router-dom";
+import useBookedClass from "../../../hooks/useBookedClass";
 
 const SelectedClass = () => {
-  const [cart, refetch] = useCart();
+  const [bookedClasses, refetch] = useBookedClass();
 
   const [isAdmin] = useAdmin();
 
@@ -24,9 +25,12 @@ const SelectedClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/carts/${item._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/booked-classes/${item._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -64,7 +68,7 @@ const SelectedClass = () => {
             </tr>
           </thead>
           <tbody>
-            {cart.map((item, index) => (
+            {bookedClasses.map((item, index) => (
               <tr key={item._id}>
                 <td>{index + 1}</td>
                 <td>
@@ -82,10 +86,7 @@ const SelectedClass = () => {
                 <td className='text-end'>${item.price}</td>
                 <td>
                   <Link to={`/dashboard/payment/${item._id}`}>
-                    <button
-
-                      className='btn bg-[#dd5449] hover:bg-[#b31409]  text-white'
-                    >
+                    <button className='btn bg-[#dd5449] hover:bg-[#b31409]  text-white'>
                       <small>Pay</small>
                     </button>
                   </Link>
