@@ -9,7 +9,7 @@ import img6 from "../../../assets/Whatwedo/w-6.webp";
 
 const WhatWeDo = () => {
   return (
-    <div>
+    <div >
       <div className='lg:flex items-start justify-between lg:gap-20 px-10 lg:px-32 mb-24'>
         <h2 className='text-5xl font-semibold '>
           What We <span className='text-[#dc1d24]'>Do</span>

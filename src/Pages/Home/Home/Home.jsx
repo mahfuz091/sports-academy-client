@@ -7,7 +7,7 @@ import WhatWeDo from "../WhatWeDo/WhatWeDo";
 
 const Home = () => {
   return (
-    <>
+    <div >
       <Helmet>
         <title>Sports Avademy | Home</title>
       </Helmet>
@@ -15,7 +15,7 @@ const Home = () => {
       <WhatWeDo></WhatWeDo>
       <PopularClasses></PopularClasses>
       <PopularInsTructor></PopularInsTructor>
-    </>
+    </div>
   );
 };
 

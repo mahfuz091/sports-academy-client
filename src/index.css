@@ -6,11 +6,29 @@ body {
   font-family: "Aleo", serif !important;
 }
 
+.dark-theme {
+  background-color: black !important;
+  color: white !important;
+}
+
+.light-theme {
+  background-color: transparent;
+}
+
+
+
+.btn {
+  background-color: var(--btn-bg-color);
+  color: var(--bg-color)
+}
+
+
 .wrapper {
   max-width: 1320px;
   margin: 0 auto;
   width: 100%;
 }
+
 .section-heading {
   font-style: normal;
   font-weight: 400;

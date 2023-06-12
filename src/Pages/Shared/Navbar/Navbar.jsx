@@ -18,9 +18,24 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
+
+  const [theme, setTheme] = useState('light-theme')
+
+  const handleToggle = (e) => {
+    if (theme === "dark-theme") {
+      setTheme('light-theme')
+    }
+    else {
+      setTheme('dark-theme')
+    }
+  }
+  useEffect(() => {
+
+    document.body.className = theme;
+  }, [theme])
   const navOptions = (
     <>
       <li>
@@ -94,10 +109,15 @@ const Navbar = () => {
           </li>
         </>
       )}
+      <li ><Link className="ml-5" onClick={handleToggle}> {theme == "dark-theme" ? "Light" : "Dark"}
+      </Link>
+      </li>
+
     </>
   );
   return (
     <div>
+
       <div className='navbar fixed max-w-[1320px] z-10  pt-8 pb-6 px-14 nav-bg justify-between'>
         <div className='navbar-start'>
           <div className='dropdown'>
@@ -137,7 +157,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
