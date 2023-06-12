@@ -10,11 +10,11 @@ import img6 from "../../../assets/Whatwedo/w-6.webp";
 const WhatWeDo = () => {
   return (
     <div>
-      <div className='flex items-start justify-between gap-20 px-32 mb-24'>
+      <div className='lg:flex items-start justify-between lg:gap-20 px-10 lg:px-32 mb-24'>
         <h2 className='text-5xl font-semibold '>
           What We <span className='text-[#dc1d24]'>Do</span>
         </h2>
-        <p className='text-base w-1/2 '>
+        <p className='text-base lg:w-1/2 mt-5 lg:mt-0'>
           The Sports Academy provides students with opportunities to be
           physically active while increasing social awareness and drive to max
           potential. We place specific attention on providing athletes with life
@@ -22,7 +22,7 @@ const WhatWeDo = () => {
           positively to society.
         </p>
       </div>
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 '>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-10 lg:px-0 '>
         <div class='image'>
           <img class='image__img w-96 h-52 rounded-xl' src={img1} alt='' />
           <div class='image__overlay image__overlay--primary'>
