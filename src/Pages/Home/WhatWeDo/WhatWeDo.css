@@ -3,17 +3,24 @@
   width: 400px;
 }
 
-@media (min-width: 575px) {
-  .image__img {
 
-    width: 350px;
-  }
-
-}
 
 .image__img {
   display: block;
   width: 100%;
+}
+
+@media (min-width: 575px) {
+  .image__img {
+
+    width: 80%;
+  }
+
+  .image {
+
+    width: 250px;
+  }
+
 }
 
 .image__overlay {

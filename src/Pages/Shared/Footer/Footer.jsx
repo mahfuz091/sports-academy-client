@@ -5,7 +5,7 @@ import location from "../../../assets/logo/location.png";
 import social from "../../../assets/logo/social-media.png";
 const Footer = () => {
   return (
-    <div className='mb-10'>
+    <div className='mb-10 wrapper'>
       <div className='bg-[#422c18]'>
         <footer className=' footer p-10 mb-12 '>
           <div>
