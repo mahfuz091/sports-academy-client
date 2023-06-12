@@ -73,6 +73,10 @@ const DashBoard = () => {
                   <FaSchool></FaSchool> Manage Class
                 </NavLink>
               </li>
+              <div className='divider px-5'></div>
+              <li>
+                <Link to='/'><FaHome></FaHome>Home</Link>
+              </li>
             </>
           ) : isInstructor ? (
             <>
@@ -105,6 +109,10 @@ const DashBoard = () => {
                 >
                   <FaWallet></FaWallet> My Class
                 </NavLink>
+              </li>
+              <div className='divider px-5'></div>
+              <li>
+                <Link to='/'><FaHome></FaHome>Home</Link>
               </li>
             </>
           ) : (
@@ -151,6 +159,10 @@ const DashBoard = () => {
                     +{bookedClasses?.length || 0}
                   </span>
                 </NavLink>
+              </li>
+              <div className='divider px-5'></div>
+              <li>
+                <Link to='/'><FaHome></FaHome>Home</Link>
               </li>
             </>
           )}
