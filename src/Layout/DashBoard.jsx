@@ -48,7 +48,7 @@ const DashBoard = () => {
                   className={({ isActive }) =>
                     isActive ? "text-[#017f35]" : ""
                   }
-                  to='/dashboard/adminhome'
+
                 >
                   <FaHome></FaHome> Admin Dashboard
                 </NavLink>
@@ -81,7 +81,7 @@ const DashBoard = () => {
                   className={({ isActive }) =>
                     isActive ? "text-[#017f35]" : ""
                   }
-                  to='/dashboard/instructorhome'
+
                 >
                   <FaHome></FaHome> Instructor Dashboard
                 </NavLink>
@@ -114,7 +114,7 @@ const DashBoard = () => {
                   className={({ isActive }) =>
                     isActive ? "text-[#017f35]" : ""
                   }
-                  to='/dashboard/studenthome'
+
                 >
                   <FaHome></FaHome> Student Dashboard
                 </NavLink>

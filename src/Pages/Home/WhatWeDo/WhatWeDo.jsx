@@ -1,4 +1,5 @@
 import React from "react";
+import anime from 'animejs/lib/anime.es.js';
 import "./WhatWeDo.css";
 import img1 from "../../../assets/Whatwedo/w-1.jpg";
 import img2 from "../../../assets/Whatwedo/w-2.jpg";
@@ -7,7 +8,15 @@ import img4 from "../../../assets/Whatwedo/w-4.jpg";
 import img5 from "../../../assets/Whatwedo/w-5.webp";
 import img6 from "../../../assets/Whatwedo/w-6.webp";
 
+
 const WhatWeDo = () => {
+  // anime({
+  //   targets: 'div',
+  //   translateX: 250,
+  //   rotate: '1turn',
+  //   backgroundColor: '#FFF',
+  //   duration: 800
+  // });
   return (
     <div >
       <div className='lg:flex items-start justify-between lg:gap-20 px-10 lg:px-32 mb-24'>
@@ -60,6 +69,7 @@ const WhatWeDo = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

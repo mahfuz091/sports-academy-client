@@ -71,9 +71,8 @@ const ClassCard = ({ singleClass }) => {
 
   return (
     <div
-      className={`card w-full hover:bg-[#f7ae1c] ${
-        seats == 0 ? "bg-red-500 hover:bg-red-700 text-white" : ""
-      } `}
+      className={`card w-full hover:bg-[#f7ae1c] ${seats == 0 ? "bg-red-500 hover:bg-red-700 text-white" : ""
+        } `}
     >
       <figure className='px-10 pt-10'>
         <img src={image} alt='' className='rounded-xl' />
@@ -89,7 +88,7 @@ const ClassCard = ({ singleClass }) => {
               <button
                 disabled
                 onClick={() => handleSelect(singleClass)}
-                className='btn bg-[#dd5449] hover:bg-[#b31409] text-white border-0'
+                className=' bg-[#dd5449] hover:bg-[#b31409] text-white border-0'
               >
                 Select Classes
               </button>
@@ -98,7 +97,7 @@ const ClassCard = ({ singleClass }) => {
             <>
               <button
                 onClick={() => handleSelect(singleClass)}
-                className='btn bg-[#dd5449] hover:bg-[#b31409] text-white border-0'
+                className=' bg-[#dd5449] hover:bg-[#b31409] text-white border-0'
               >
                 Select Classes
               </button>
