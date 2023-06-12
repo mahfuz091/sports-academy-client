@@ -18,6 +18,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import DashboardCover from "../DashboardCover/DashboardCover";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: 'home',
+        element: <DashboardCover title="Home"></DashboardCover>
+      },
       // admin route
       {
         path: "manage-user",

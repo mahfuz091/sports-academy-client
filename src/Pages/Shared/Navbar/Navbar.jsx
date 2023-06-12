@@ -51,7 +51,7 @@ const Navbar = () => {
           <li>
             <NavLink
               className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
-              to='/dashboard'
+              to='/dashboard/home'
             >
               Dashboard
             </NavLink>
