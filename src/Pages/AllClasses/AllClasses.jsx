@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ClassCard from "./ClassCard";
 import PageCover from "../Shared/PageCover/PageCover";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const AllClasses = () => {
   const [classes, setClasses] = useState([]);
@@ -9,6 +11,7 @@ const AllClasses = () => {
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);
+
   console.log(classes);
   return (
     <div className='py-36 '>

@@ -11,6 +11,8 @@ const ClassCard = ({ singleClass }) => {
   const { image, instructor, name, price, seats, _id } = singleClass;
   const { user } = useAuth();
 
+  console.log(user);
+
   const [bookedClasses, refetch] = useBookedClass();
 
   const navigate = useNavigate();
@@ -69,9 +71,8 @@ const ClassCard = ({ singleClass }) => {
 
   return (
     <div
-      className={`card w-full hover:bg-[#f7ae1c] ${
-        seats == 0 ? "bg-red-500 hover:bg-red-700 text-white" : ""
-      } `}
+      className={`card w-full hover:bg-[#f7ae1c] ${seats == 0 ? "bg-red-500 hover:bg-red-700 text-white" : ""
+        } `}
     >
       <figure className='px-10 pt-10'>
         <img src={image} alt='' className='rounded-xl' />
@@ -82,7 +83,7 @@ const ClassCard = ({ singleClass }) => {
         <p>Available Seat: {seats}</p>
         <p>Price: BDT {price}</p>
         <div className='card-actions'>
-          {isAdmin || isInstructor || seats == 0 ? (
+          {user?.role == 'admin' || user?.role == 'instructor' || seats == 0 ? (
             <>
               <button
                 disabled
