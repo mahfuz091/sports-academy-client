@@ -88,7 +88,7 @@ const ClassCard = ({ singleClass }) => {
               <button
                 disabled
                 onClick={() => handleSelect(singleClass)}
-                className=' bg-[#dd5449] hover:bg-[#b31409] text-white border-0'
+                className=' btn bg-[#dd5449] hover:bg-[#b31409] text-white border-0'
               >
                 Select Classes
               </button>
@@ -97,7 +97,7 @@ const ClassCard = ({ singleClass }) => {
             <>
               <button
                 onClick={() => handleSelect(singleClass)}
-                className=' bg-[#dd5449] hover:bg-[#b31409] text-white border-0'
+                className=' btn bg-[#dd5449] hover:bg-[#b31409] text-white border-0'
               >
                 Select Classes
               </button>

@@ -3,6 +3,14 @@
   width: 400px;
 }
 
+@media (min-width: 575px) {
+  .image__img {
+
+    width: 350px;
+  }
+
+}
+
 .image__img {
   display: block;
   width: 100%;
@@ -34,7 +42,7 @@
   border-radius: 12px;
 }
 
-.image__overlay > * {
+.image__overlay>* {
   transform: translateY(20px);
   transition: transform 0.25s;
 }
@@ -43,7 +51,7 @@
   opacity: 0.8;
 }
 
-.image__overlay:hover > * {
+.image__overlay:hover>* {
   transform: translateY(0);
 }
 

@@ -52,13 +52,13 @@ const ManageClassRow = ({
       <td>
         <div className='flex'>
           {singleClass.status == "approved" ||
-          singleClass.status == "denied" ? (
+            singleClass.status == "denied" ? (
             <>
               <div className='flex gap-2'>
-                <button disabled className='btn'>
+                <button disabled className='btn bg-[#dd5449] text-white hover:bg-[#b31409]'>
                   Approved
                 </button>
-                <button disabled className='btn'>
+                <button disabled className='btn bg-[#dd5449] text-white hover:bg-[#b31409]'>
                   Deny
                 </button>
               </div>
@@ -83,7 +83,7 @@ const ManageClassRow = ({
           )}
 
           {singleClass.status == "approved" ||
-          singleClass.status == "pending" ? (
+            singleClass.status == "pending" ? (
             <>
               <button
                 disabled
