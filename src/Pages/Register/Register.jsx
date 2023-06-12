@@ -27,9 +27,8 @@ const Register = () => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
-    const url = `https://api.imgbb.com/1/upload?key=${
-      import.meta.env.VITE_IMGBB_KEY
-    }`;
+    const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY
+      }`;
     fetch(url, {
       method: "POST",
       body: formData,
@@ -200,7 +199,7 @@ const Register = () => {
               <div className='form-control mt-6'>
                 <input
                   type='submit'
-                  className='btn border-none bg-[#dd5449] text-white hover:bg-[#b31409]'
+                  className='border-none bg-[#dd5449] text-white hover:bg-[#b31409]'
                   value='Register Now'
                 />
               </div>

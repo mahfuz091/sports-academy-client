@@ -17,6 +17,7 @@ import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -110,4 +111,8 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '*',
+    element: <ErrorPage></ErrorPage>
+  }
 ]);
