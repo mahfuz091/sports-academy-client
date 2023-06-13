@@ -16,9 +16,8 @@ const AddClass = () => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
-    const url = `https://api.imgbb.com/1/upload?key=${
-      import.meta.env.VITE_IMGBB_KEY
-    }`;
+    const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY
+      }`;
     fetch(url, {
       method: "POST",
       body: formData,
@@ -164,7 +163,7 @@ const AddClass = () => {
           <input
             type='file'
             {...register("image", { required: true })}
-            className='file-input file-input-bordered w-full block w-full text-sm text-slate-500
+            className='file-input file-input-bordered  block w-full text-sm text-slate-500
             file:py-2 
            file:rounded-full file:border-0
            file:text-sm file:font-semibold
@@ -174,7 +173,7 @@ const AddClass = () => {
         </div>
 
         <input
-          className='btn btn-sm mt-4 w-full py-8 bg-[#dd5449] hover:bg-[#b31409] text-white '
+          className='btn b mt-4 w-full  bg-[#dd5449] hover:bg-[#b31409] text-white '
           type='submit'
           value='Add Class'
         />

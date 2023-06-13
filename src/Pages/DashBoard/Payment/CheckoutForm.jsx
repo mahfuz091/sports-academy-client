@@ -8,6 +8,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CheckoutForm = ({ price, id, selectClassId, selectClass }) => {
+  console.log(selectClass);
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
@@ -80,9 +81,12 @@ const CheckoutForm = ({ price, id, selectClassId, selectClass }) => {
         email: user?.email,
         transactionId: paymentIntent.id,
         price,
+        instructorEmail: selectClass?.instructorEmail,
+
         date: new Date(),
         status: "Successfully Enrolled",
       };
+
 
       axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
@@ -93,7 +97,7 @@ const CheckoutForm = ({ price, id, selectClassId, selectClass }) => {
           }
         )
           .then((res) => res.json())
-          .then((data) => {});
+          .then((data) => { });
 
         if (res.data.insertResult.insertedId) {
           // display confirm

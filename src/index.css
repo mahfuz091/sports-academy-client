@@ -15,12 +15,17 @@ body {
   background-color: transparent;
 }
 
-
-
-.btn {
-  background-color: var(--btn-bg-color);
-  color: var(--bg-color)
+/* .stat,
+.drawer-side {
+  background: linear-gradient(90deg, #D3A256 0%, #FDE8C0 100%);
+  border-radius: 8px;
+} */
+.stat {
+  border-radius: 8px
 }
+
+
+
 
 
 .wrapper {

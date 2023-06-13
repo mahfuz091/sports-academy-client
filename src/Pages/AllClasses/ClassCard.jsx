@@ -8,7 +8,8 @@ import useInstructor from "../../hooks/useInstructor";
 import useBookedClass from "../../hooks/useBookedClass";
 
 const ClassCard = ({ singleClass }) => {
-  const { image, instructor, name, price, seats, _id } = singleClass;
+  console.log(singleClass);
+  const { image, instructor, name, price, seats, _id, email } = singleClass;
   const { user } = useAuth();
 
   console.log(user);
@@ -27,8 +28,10 @@ const ClassCard = ({ singleClass }) => {
         name,
         image,
         instructor,
+
+        instructorEmail: email,
         price,
-        email: user.email,
+        email: user?.email,
       };
       fetch(
         "https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/booked-classes",

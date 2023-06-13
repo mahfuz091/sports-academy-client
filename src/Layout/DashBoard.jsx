@@ -22,7 +22,7 @@ const DashBoard = () => {
   return (
     <div className='drawer lg:drawer-open'>
       <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
-      <div className='drawer-content flex flex-col items-center justify-center'>
+      <div className='drawer-content flex mt-16 justify-center'>
         <Outlet></Outlet>
         <label
           htmlFor='my-drawer-2'
@@ -31,7 +31,7 @@ const DashBoard = () => {
           Open drawer
         </label>
       </div>
-      <div className='drawer-side mt-10 bg- '>
+      <div className='drawer-side mt-10   '>
         <label htmlFor='my-drawer-2' className='drawer-overlay'></label>
         <Link to='/' className='flex items-center gap-2 ml-5'>
           <img className='w-10' src={logo} alt='' />
