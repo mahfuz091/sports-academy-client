@@ -1,5 +1,5 @@
 import React from "react";
-import { Fade, Slide } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal";
 
 import "./WhatWeDo.css";
 import img1 from "../../../assets/Whatwedo/w-1.jpg";

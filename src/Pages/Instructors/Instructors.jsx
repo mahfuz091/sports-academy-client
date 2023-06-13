@@ -33,7 +33,7 @@ const Instructors = () => {
           </thead>
           <tbody>
             {instructors.map((instructor, index) => (
-              <tr key={instructor._id}>
+              <tr className='hover' key={instructor._id}>
                 <th>{index + 1}</th>
                 <th>
                   <img className='w-12' src={instructor.image} alt='' />
