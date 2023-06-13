@@ -19,6 +19,9 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import DashboardCover from "../DashboardCover/DashboardCover";
+import AdminHome from "../Pages/DashBoard/Home/AdminHome";
+import InstructorHome from "../Pages/DashBoard/Home/InstructorHome";
+import StudentHome from "../Pages/DashBoard/Home/StudentHome";
 
 export const router = createBrowserRouter([
   {
@@ -55,11 +58,12 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      {
-        path: 'home',
-        element: <DashboardCover title="Home"></DashboardCover>
-      },
+
       // admin route
+      {
+        path: 'admin-home',
+        element: <AdminHome></AdminHome>
+      },
       {
         path: "manage-user",
         element: (
@@ -68,6 +72,7 @@ export const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
+
       {
         path: "manage-class",
         element: (
@@ -77,6 +82,10 @@ export const router = createBrowserRouter([
         ),
       },
       // instructor route
+      {
+        path: 'instructor-home',
+        element: <InstructorHome></InstructorHome>
+      },
       {
         path: "add-class",
         element: (
@@ -94,6 +103,10 @@ export const router = createBrowserRouter([
         ),
       },
       // sutdent route
+      {
+        path: 'student-home',
+        element: <StudentHome></StudentHome>
+      },
       {
         path: "selectclass",
         element: <SelectedClass />,

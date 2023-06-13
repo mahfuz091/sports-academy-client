@@ -6,10 +6,16 @@ import { AuthContext } from "../../../Providers/Authprovider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useBookedClass from "../../../hooks/useBookedClass";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [bookedClasses] = useBookedClass();
+
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const [axiosSecure] = useAxiosSecure();
   const { data: dbUser = [], refetch } = useQuery(["user"], async () => {
     const res = await axiosSecure.get(`/user/${user?.email}`);
@@ -18,7 +24,7 @@ const Navbar = () => {
 
   const handleSignOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
 
@@ -49,7 +55,7 @@ const Navbar = () => {
           <li>
             <NavLink
               className={({ isActive }) => (isActive ? "text-[#017f35]" : "")}
-              to='/dashboard/home'
+              to={isAdmin ? 'dashboard/admin-home' : isInstructor ? 'dashboard/instructor-home' : 'dashboard/student-home'}
             >
               Dashboard
             </NavLink>
