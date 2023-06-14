@@ -55,6 +55,16 @@ const ClassCard = ({ singleClass }) => {
               timer: 1500,
             });
           }
+          else {
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: "Already added to My Booking.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+
+          }
         });
     } else {
       Swal.fire({
