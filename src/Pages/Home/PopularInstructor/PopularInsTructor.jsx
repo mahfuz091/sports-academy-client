@@ -3,16 +3,21 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import PopularInstructorCard from "./PopularInstructorCard";
+import useAuth from "../../../hooks/useAuth";
 
 const PopularInsTructor = () => {
-  const [axiosSecure] = useAxiosSecure();
-  const { data: instructors = [], refetch } = useQuery(
-    ["instructors"],
-    async () => {
-      const res = await axiosSecure.get("/instructors");
-      return res.data;
-    }
-  );
+  const { loading } = useAuth()
+  const { refetch, data: instructors = [] } = useQuery({
+    queryKey: ["popular-instructors"],
+    enabled: !loading,
+
+    queryFn: async () => {
+      const res = await fetch(
+        "https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/instructors"
+      );
+      return res.json();
+    },
+  });
   return (
     <div>
       <SectionTitle heading='Popular Instructors'></SectionTitle>
