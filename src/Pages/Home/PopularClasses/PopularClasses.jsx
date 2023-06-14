@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import PopularClassesCard from "./PopularClassesCard";
-import PageCover from "../../Shared/PageCover/PageCover";
+
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
-import useAuth from "../../../hooks/useAuth";
+
 
 const PopularClasses = () => {
-  const { loading } = useAuth()
+
   const { refetch, data: popularClasses = [] } = useQuery({
     queryKey: ["popular-classes"],
-    enabled: !loading,
+
 
     queryFn: async () => {
       const res = await fetch(

@@ -6,10 +6,10 @@ import PopularInstructorCard from "./PopularInstructorCard";
 import useAuth from "../../../hooks/useAuth";
 
 const PopularInsTructor = () => {
-  const { loading } = useAuth()
+
   const { refetch, data: instructors = [] } = useQuery({
     queryKey: ["popular-instructors"],
-    enabled: !loading,
+
 
     queryFn: async () => {
       const res = await fetch(
