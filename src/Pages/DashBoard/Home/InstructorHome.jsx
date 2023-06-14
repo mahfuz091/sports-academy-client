@@ -32,7 +32,7 @@ const InstructorHome = () => {
                 <div className="stat shadow">
 
                     <div className="stat-title">Total Enroll Student</div>
-                    <div className="stat-value flex gap-2 text-red-500"><FaUserGraduate></FaUserGraduate>{stats.students}</div>
+                    <div className="stat-value flex gap-2 text-red-500"><FaUserGraduate></FaUserGraduate>{stats.totalStudent}</div>
 
                 </div>
 
