@@ -9,7 +9,7 @@ import useBookedClass from "../../../hooks/useBookedClass";
 
 const Payment = () => {
   const selectClass = useLoaderData();
-  console.log(selectClass);
+
 
   const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
   return (
