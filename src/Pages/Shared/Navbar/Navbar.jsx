@@ -80,7 +80,7 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      {user && dbUser?.role == "student" ? (
+      {/* {user && dbUser?.role == "student" ? (
         <>
           <li>
             <Link to='/dashboard/selectclass'>
@@ -91,7 +91,7 @@ const Navbar = () => {
             </Link>
           </li>
         </>
-      ) : null}
+      ) : null} */}
       {user ? (
         <>
           <img

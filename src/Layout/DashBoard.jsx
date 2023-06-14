@@ -155,7 +155,7 @@ const DashBoard = () => {
                   to='/dashboard/selectclass'
                 >
                   <FaShoppingCart></FaShoppingCart> Selected Class
-                  <span className='badge inl badge-secondary'>
+                  <span className='badge bg-[#017f35] text-white'>
                     +{bookedClasses?.length || 0}
                   </span>
                 </NavLink>

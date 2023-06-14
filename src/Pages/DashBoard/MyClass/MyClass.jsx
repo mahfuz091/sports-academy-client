@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import axios from 'axios';
+
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 import DashboardCover from "../../../DashboardCover/DashboardCover";
-import { FaEdit } from "react-icons/fa";
-import UpdateFeedBackModal from "../UpdateFeedbackModal/UpdateFeedBackModal";
+
 import MyClassRow from "./MyClassRow";
 
 const MyClass = () => {

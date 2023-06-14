@@ -1,9 +1,9 @@
 import React from "react";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import PopularInstructorCard from "./PopularInstructorCard";
-import useAuth from "../../../hooks/useAuth";
+
 
 const PopularInsTructor = () => {
 
