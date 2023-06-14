@@ -11,6 +11,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+  const [error, setError] = useState()
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,15 +30,26 @@ const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
     const { email, password } = data;
-    signIn(email, password).then((result) => {
-      const user = result.user;
-      console.log(user);
-      Swal.fire({
-        title: "User Login Successful.",
-        icon: "success",
-      });
-      navigate(from, { replace: true });
-    });
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          title: "User Login Successful.",
+          icon: "success",
+        });
+        navigate(from, { replace: true });
+      })
+      .catch(error => {
+        console.log(error.message);
+        if (error.message === "Firebase: Error (auth/wrong-password).") {
+          setError("wrong password");
+        } else if (error.message === "Firebase: Error (auth/user-not-found).") {
+          setError("User not found");
+        } else {
+          setError(error.message);
+        }
+      })
   };
 
   const defaultOptions = {
@@ -96,12 +108,16 @@ const Login = () => {
               {errors.password && (
                 <span className='text-warning'>This field is required</span>
               )}
+
               <label className='label'>
                 <a href='#' className='label-text-alt link link-hover'>
                   Forgot password?
                 </a>
               </label>
             </div>
+            {error && (
+              <span className='text-warning'>{error}</span>
+            )}
 
             <div className='form-control mt-6'>
               <input
