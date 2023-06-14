@@ -12,7 +12,7 @@ const AllClasses = () => {
       .then((data) => setClasses(data));
   }, []);
 
-  console.log(classes);
+
   return (
     <div className='py-36 '>
       <PageCover title='All Classes' />

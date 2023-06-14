@@ -12,14 +12,14 @@ const ManageClassRow = ({
 }) => {
   const [showModal, setShowModal] = useState(false);
   const handleSendFeedback = (data) => {
-    console.log(data);
+
     const url = `https://b7a12-summer-camp-server-side-mahfuz091.vercel.app/update-feedback/${singleClass._id}`;
-    console.log(url);
+
     axios
       .patch(url, data)
       .then((response) => {
         // Handle successful response
-        console.log(response.data);
+
         if (response.data.modifiedCount > 0) {
           refetch();
           Swal.fire({
@@ -30,7 +30,7 @@ const ManageClassRow = ({
           });
           setShowModal(false);
         }
-        console.log(response);
+
       })
       .catch((error) => {
         // Handle error

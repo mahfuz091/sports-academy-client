@@ -73,17 +73,17 @@ const Register = () => {
               })
               .catch((err) => {
                 setLoading(false);
-                console.log(err.message);
+
               });
           })
           .catch((err) => {
             setLoading(false);
-            console.log(err.message);
+
           });
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err.message);
+
       });
   };
 

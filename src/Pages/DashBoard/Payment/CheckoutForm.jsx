@@ -49,7 +49,7 @@ const CheckoutForm = ({ price, id, selectClassId, selectClass }) => {
       setCardError(error.message);
     } else {
       setCardError("");
-      // console.log('payment method', paymentMethod)
+
     }
 
     setProcessing(true);
@@ -96,7 +96,7 @@ const CheckoutForm = ({ price, id, selectClassId, selectClass }) => {
           }
         )
           .then((res) => res.json())
-          .then((data) => {});
+          .then((data) => { });
 
         if (res.data.insertResult.insertedId) {
           // display confirm

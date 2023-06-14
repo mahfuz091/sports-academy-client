@@ -28,12 +28,12 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+
     const { email, password } = data;
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+
         Swal.fire({
           title: "User Login Successful.",
           icon: "success",
@@ -41,7 +41,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch(error => {
-        console.log(error.message);
+
         if (error.message === "Firebase: Error (auth/wrong-password).") {
           setError("wrong password");
         } else if (error.message === "Firebase: Error (auth/user-not-found).") {

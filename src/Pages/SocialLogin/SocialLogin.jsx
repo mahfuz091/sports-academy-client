@@ -8,20 +8,11 @@ const SocialLogin = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const handleGoogleSignIn = () => {
-  //   signInWithGoogle()
-  //     .then((result) => {
-  //       const loggedInUser = result.user;
-  //       console.log(loggedInUser);
-  //     })
-  //     .then(() => {
-  //       navigate(from, { replace: true });
-  //     });
-  // };
+
   const handleGoogleSignIn = () => {
     signInWithGoogle().then((result) => {
       const loggedInUser = result.user;
-      console.log(loggedInUser);
+
       const saveUser = {
         name: loggedInUser.displayName,
         email: loggedInUser.email,

@@ -15,7 +15,7 @@ const EnrollClasses = () => {
       return res.data;
     }
   );
-  console.log(enrollClasses);
+
 
   return (
     <div className='w-full'>

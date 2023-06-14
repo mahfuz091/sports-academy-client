@@ -12,7 +12,7 @@ const AddClass = () => {
   const [axiosSecure] = useAxiosSecure();
 
   const onSubmit = (data) => {
-    console.log(data);
+
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
@@ -24,7 +24,7 @@ const AddClass = () => {
     })
       .then((res) => res.json())
       .then((imageData) => {
-        console.log(imageData);
+
         if (imageData.success) {
           const imgURL = imageData.data.display_url;
           const { name, price, instructor, seats, email } = data;
@@ -38,7 +38,7 @@ const AddClass = () => {
             image: imgURL,
             status: "pending",
           };
-          console.log(newClass);
+
           axiosSecure.post("/all-classes", newClass).then((data) => {
             console.log("after posting new menu item", data.data);
             if (data.data.insertedId) {

@@ -18,7 +18,7 @@ const PopularClasses = () => {
       return res.json();
     },
   });
-  console.log(popularClasses);
+
   return (
     <div>
       <SectionTitle heading='Popular Classes'></SectionTitle>
